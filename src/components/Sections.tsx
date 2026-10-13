@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Logo } from "./Nav";
-import { Arcs, Contours, PointField } from "./SectionArt";
 import { featuredModel, indianaModels } from "@/data/models";
 import s from "./Sections.module.css";
 
@@ -172,7 +171,7 @@ export function HowItWorks() {
     ["Deliver as BIM and twin", "Semantic IFC4 export with pylons, girders, deck slab and cables, re-parsed and validated, plus GLB for the web. The inspection platform then ties damage records to the elements.", "IFC4 · GLB · inspection twin"],
   ];
   return (
-    <section id="how" className="section motif--ticks">
+    <section id="how" className="section motif--drafting motif--drafting-surface">
       <div className="container section__inner" style={{ gap: 56 }}>
         <div className="section__head">
           <div className="section__title">
@@ -198,7 +197,7 @@ export function HowItWorks() {
 
 export function Software() {
   return (
-    <section id="software" className="section motif--spotlight">
+    <section id="software" className="section motif--drafting">
       <div className="container section__inner">
         <div className="section__head">
           <div className="section__title">
@@ -298,8 +297,7 @@ export function Capabilities() {
     ["web", "Web viewer & sharing", "Nothing to install. Measure, annotate and share a link with owners, contractors and inspectors."],
   ];
   return (
-    <section id="capabilities" className="section section--surface">
-      <PointField />
+    <section id="capabilities" className="section motif--drafting motif--drafting-surface">
       <div className="container section__inner">
         <div className="section__title">
           <p className="eyebrow">Capabilities</p>
@@ -363,8 +361,7 @@ export function Industries() {
     ["Infrastructure & public works", "Roads, bridges and utilities documented for inspection and long-term asset management."],
   ];
   return (
-    <section id="industries" className="section">
-      <Contours />
+    <section id="industries" className="section motif--drafting">
       <div className={`container section__inner ${s.industriesInner}`} style={{ flexDirection: "row" }}>
         <div className={s.industriesIntro}>
           <p className="eyebrow">Industries</p>
@@ -391,8 +388,7 @@ export function Industries() {
 
 export function Proof() {
   return (
-    <section id="proof" className="section section--surface">
-      <Arcs />
+    <section id="proof" className="section motif--drafting motif--drafting-surface">
       <div className="container section__inner">
         <div className="section__title">
           <p className="eyebrow">Customer story</p>
@@ -436,7 +432,7 @@ export function Proof() {
 
 export function CTA() {
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section motif--drafting">
       <div className="container section__inner">
         <div className={s.ctaCard}>
           <div className={s.ctaText}>
@@ -466,7 +462,7 @@ export function Footer() {
     ["Company", [["About", "/#about"], ["Work", "/#work"], ["Software", "/#software"], ["Contact", "/#contact"]]],
   ];
   return (
-    <footer id="about" className={s.footer}>
+    <footer id="about" className={`motif--drafting ${s.footer}`}>
       <div className={`container ${s.footerInner}`}>
         <div className={s.footerCols}>
           <div className={s.footerBrand}>
