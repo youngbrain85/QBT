@@ -135,15 +135,15 @@ export function Work() {
             </figcaption>
           </figure>
           <figure className={`card card--ground ${s.figure}`}>
-            <Image src="/renders/wonsan-anmyeon-side.png" alt="Side wireframe view of the bridge showing the cable fans from both pylons" width={1600} height={900} />
+            <Image src="/renders/wonsan-pylon-segments.png" alt="Pylon PY1 alone, its 32 parts tinted alternately so each segment reads as its own object" width={1200} height={900} style={{ objectPosition: "50% 40%" }} />
             <figcaption>
-              <strong>72 stay cables with anchorages.</strong> Cable geometry refined over several revisions against quantity tables, installation drawings and close-up photographs.
+              <strong>By member, by segment.</strong> Pylon PY1 on its own: 32 parts, each its own object with an elevation range, so any member or any segment can be isolated, measured and visualized.
             </figcaption>
           </figure>
           <figure className={`card card--ground ${s.figure}`}>
-            <Image src="/renders/app-segment-viewer.png" alt="Segment review viewer with a list of pylon segments, elevation ranges and approval badges beside the model" width={1600} height={900} style={{ objectPosition: "0 0" }} />
+            <Image src="/renders/wonsan-pylon-damage.png" alt="Damage markers for a crack, spalling, leakage and rebar exposure drawn on the 3D faces of pylon PY1, with an inspection record panel listing each one with its size and grade" width={1200} height={900} style={{ objectPosition: "50% 45%" }} />
             <figcaption>
-              <strong>Reviewed segment by segment.</strong> Each of the 73 models carries its elevation range and approval status; section clipping shows the hollow interiors.
+              <strong>Damage on the surface, records behind it.</strong> Inspectors mark cracks, spalls and leaks directly on the 3D faces; every marker opens its inspection record (type, size, grade, photo, date) and feeds the map sheets.
             </figcaption>
           </figure>
         </div>
