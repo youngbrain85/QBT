@@ -2,7 +2,7 @@
 .services {
   position: relative;
   border-bottom: 1px solid var(--line);
-  background: rgba(16, 20, 42, 0.6);
+  background: var(--surface);
 }
 
 .servicesInner {
@@ -635,6 +635,16 @@
 
 .footerCol a:hover {
   color: var(--ink);
+}
+
+.footerWordmark {
+  margin: 8px 0 -10px;
+  font-size: clamp(72px, 13vw, 190px);
+  line-height: 0.85;
+  letter-spacing: 0.02em;
+  opacity: 0.08;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .footerBottom {

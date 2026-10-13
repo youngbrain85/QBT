@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState } from "react";
+import HeroMesh from "./HeroMesh";
 import styles from "./Hero.module.css";
 import type { HeroPhase } from "./HeroScene";
 
@@ -27,6 +28,7 @@ export default function Hero() {
 
   return (
     <section id="top" className={`section ${styles.hero}`}>
+      <HeroMesh />
       <div className={`container ${styles.inner}`}>
         <div className={styles.copy}>
           <p className="eyebrow">Innovate · Build · Transform</p>

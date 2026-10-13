@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Logo } from "./Nav";
+import { Arcs, Contours, PointField } from "./SectionArt";
 import { featuredModel, indianaModels } from "@/data/models";
 import s from "./Sections.module.css";
 
@@ -56,7 +57,7 @@ export function LogoStrip() {
 export function Work() {
   const f = featuredModel;
   return (
-    <section id="work" className="section">
+    <section id="work" className="section motif--drafting">
       <div className={`container section__inner`}>
         <div className="section__head">
           <div className="section__title">
@@ -171,7 +172,7 @@ export function HowItWorks() {
     ["Deliver as BIM and twin", "Semantic IFC4 export with pylons, girders, deck slab and cables, re-parsed and validated, plus GLB for the web. The inspection platform then ties damage records to the elements.", "IFC4 · GLB · inspection twin"],
   ];
   return (
-    <section id="how" className="section">
+    <section id="how" className="section motif--ticks">
       <div className="container section__inner" style={{ gap: 56 }}>
         <div className="section__head">
           <div className="section__title">
@@ -183,7 +184,7 @@ export function HowItWorks() {
         <ol className={s.steps}>
           {steps.map(([title, body, tag], i) => (
             <li key={title} className={s.step}>
-              <span className="mono">0{i + 1}</span>
+              <span className="mono">{i + 1}.0 {["Collect", "Model", "Review", "Measure", "Deliver"][i]}</span>
               <h3>{title}</h3>
               <p>{body}</p>
               <span className="mono">{tag}</span>
@@ -197,7 +198,7 @@ export function HowItWorks() {
 
 export function Software() {
   return (
-    <section id="software" className="section section--surface">
+    <section id="software" className="section motif--spotlight">
       <div className="container section__inner">
         <div className="section__head">
           <div className="section__title">
@@ -298,6 +299,7 @@ export function Capabilities() {
   ];
   return (
     <section id="capabilities" className="section section--surface">
+      <PointField />
       <div className="container section__inner">
         <div className="section__title">
           <p className="eyebrow">Capabilities</p>
@@ -362,6 +364,7 @@ export function Industries() {
   ];
   return (
     <section id="industries" className="section">
+      <Contours />
       <div className={`container section__inner ${s.industriesInner}`} style={{ flexDirection: "row" }}>
         <div className={s.industriesIntro}>
           <p className="eyebrow">Industries</p>
@@ -389,6 +392,7 @@ export function Industries() {
 export function Proof() {
   return (
     <section id="proof" className="section section--surface">
+      <Arcs />
       <div className="container section__inner">
         <div className="section__title">
           <p className="eyebrow">Customer story</p>
@@ -495,6 +499,9 @@ export function Footer() {
             </nav>
           ))}
         </div>
+        <p aria-hidden="true" className={`display ${s.footerWordmark}`}>
+          QBTTEXAS
+        </p>
         <div className={s.footerBottom}>
           <span>© 2026 QBTTEXAS LLC. All rights reserved.</span>
           <span>
