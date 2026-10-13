@@ -1,0 +1,82 @@
+.header {
+  position: relative;
+  z-index: 5;
+  border-bottom: 1px solid var(--line);
+  background: rgba(10, 13, 28, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.bar {
+  min-height: 72px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 32px;
+}
+
+.compact .bar {
+  min-height: 60px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  color: var(--ink);
+}
+
+.wordmark {
+  font-size: 20px;
+  letter-spacing: 0.06em;
+}
+
+.tag {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-left: 8px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 28px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.links a {
+  color: var(--ink-2);
+  padding: 12px 0;
+}
+
+.links a:hover {
+  color: var(--ink);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .links {
+    order: 3;
+    width: 100%;
+    gap: 2px 20px;
+    padding-bottom: 8px;
+  }
+
+  .links a {
+    padding: 8px 0;
+  }
+
+  .actions a:first-child {
+    display: none;
+  }
+}

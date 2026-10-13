@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QBTTEXAS LLC — company website
 
-## Getting Started
+Marketing site and 3D model viewer for QBTTEXAS LLC: AI-based 3D modeling and digital twins for bridges, buildings and plants.
 
-First, run the development server:
+Built with Next.js (App Router), TypeScript and Three.js. No CMS, no database: content lives in `src/data` and `src/components`.
+
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What is in here
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Path | Contents |
+|---|---|
+| `src/app/page.tsx` | Homepage: hero with a live point-cloud scene, services, work samples, how it works, software, capabilities, industries, proof, contact |
+| `src/app/models` | 3D model viewer page (`/models` and `/models/[slug]`): model library, shaded / wireframe / point-cloud modes, camera presets, section cut, click-to-measure |
+| `src/components/HeroScene.tsx` | Hero animation: the Wonsan–Anmyeon Bridge GLBs are sampled into ~240k surface points coloured by elevation (LiDAR style), revealed by a scan sweep, then the BIM edges build up and inspection pins appear |
+| `src/components/ModelViewer.tsx` | Three.js viewer used by the models page (meshopt-compressed GLB, EdgesGeometry wireframe, clipping plane, raycast picking) |
+| `src/components/WarpedMesh.tsx` | The warped wire-grid backdrop; every section gets a different well centre and strength |
+| `src/data/models.ts` | Bridge catalogue: names, locations, structure types, files |
+| `public/models/wonsan` | Wonsan–Anmyeon Bridge, six measurement-based groups (pylons, deck, cables, bearings, furniture), meshopt |
+| `public/models/indiana` | Nine Indiana highway bridges from INDOT plan sets, meshopt-compressed GLB |
+| `public/renders` | Wireframe renders and product screenshots used on the homepage and as viewer thumbnails |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Content placeholders
 
-## Learn More
+Square-bracket placeholders (`[CLIENT LOGO]`, `[EMAIL]`, `[CUSTOMER QUOTE]`, `[XX]%`) mark copy still to be supplied. The contact form posts to a `mailto:` placeholder; swap it for a form endpoint before launch.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The site is static-friendly and deploys as-is on Vercel or Netlify (`npm run build`). Model files total about 6 MB; serve them with long cache headers.

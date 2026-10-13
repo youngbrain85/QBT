@@ -1,0 +1,23 @@
+.host {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 40%, #121a3a 0%, #0b0e24 55%, #0a0d1c 100%);
+  touch-action: none;
+}
+
+.host canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.status {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
