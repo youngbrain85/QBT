@@ -1,0 +1,673 @@
+{
+ "version": "v1",
+ "units": "m",
+ "frame": "x=교축직각(도로CL=0), y=EL-4.871, z=STA-4190",
+ "groups": [
+  {
+   "group": "PY1",
+   "file": "PY1.glb",
+   "sizeKB": 98,
+   "objects": [
+    {
+     "id": "PY1_1",
+     "name": "PY1 세그먼트 1 (받침·상부다리 전환)",
+     "el": "EL +32.425 ~ +36.425 (C.J. 1)",
+     "file": "PY1_1.glb"
+    },
+    {
+     "id": "PY1_10",
+     "name": "PY1 세그먼트 10 (상부 경사다리)",
+     "el": "EL +68.425 ~ +72.425 (C.J. 10)",
+     "file": "PY1_10.glb"
+    },
+    {
+     "id": "PY1_11",
+     "name": "PY1 세그먼트 11 (합류 직전, Match Line 2)",
+     "el": "EL +72.425 ~ +76.425 (C.J. 11)",
+     "file": "PY1_11.glb"
+    },
+    {
+     "id": "PY1_12",
+     "name": "PY1 세그먼트 12 (정착부 시작, TYPE A)",
+     "el": "EL +76.425 ~ +80.425 (C.J. 12)",
+     "file": "PY1_12.glb"
+    },
+    {
+     "id": "PY1_13",
+     "name": "PY1 세그먼트 13 (정착부, TYPE A)",
+     "el": "EL +80.425 ~ +83.425 (C.J. 13)",
+     "file": "PY1_13.glb"
+    },
+    {
+     "id": "PY1_14",
+     "name": "PY1 세그먼트 14 (정착부, TYPE A)",
+     "el": "EL +83.425 ~ +85.425 (C.J. 14)",
+     "file": "PY1_14.glb"
+    },
+    {
+     "id": "PY1_15",
+     "name": "PY1 세그먼트 15 (정착부, TYPE A)",
+     "el": "EL +85.425 ~ +87.425 (C.J. 15)",
+     "file": "PY1_15.glb"
+    },
+    {
+     "id": "PY1_16",
+     "name": "PY1 세그먼트 16 (TYPE B, 웹 시작)",
+     "el": "EL +87.425 ~ +89.125 (C.J. 16)",
+     "file": "PY1_16.glb"
+    },
+    {
+     "id": "PY1_17",
+     "name": "PY1 세그먼트 17 (TYPE B)",
+     "el": "EL +89.125 ~ +90.825 (C.J. 17)",
+     "file": "PY1_17.glb"
+    },
+    {
+     "id": "PY1_18",
+     "name": "PY1 세그먼트 18 (TYPE B, 합류 직전)",
+     "el": "EL +90.825 ~ +92.425 (C.J. 18)",
+     "file": "PY1_18.glb"
+    },
+    {
+     "id": "PY1_19",
+     "name": "PY1 세그먼트 19 (TYPE C, 완전 융합)",
+     "el": "EL +92.425 ~ +94.025 (C.J. 19)",
+     "file": "PY1_19.glb"
+    },
+    {
+     "id": "PY1_2",
+     "name": "PY1 세그먼트 2 (상부 경사다리)",
+     "el": "EL +36.425 ~ +40.425 (C.J. 2)",
+     "file": "PY1_2.glb"
+    },
+    {
+     "id": "PY1_20",
+     "name": "PY1 세그먼트 20 (TYPE D 진입)",
+     "el": "EL +94.025 ~ +96.625 (C.J. 20)",
+     "file": "PY1_20.glb"
+    },
+    {
+     "id": "PY1_21",
+     "name": "PY1 세그먼트 21 (TYPE D)",
+     "el": "EL +96.625 ~ +99.625 (C.J. 21)",
+     "file": "PY1_21.glb"
+    },
+    {
+     "id": "PY1_22",
+     "name": "PY1 세그먼트 22 (TYPE D 마지막)",
+     "el": "EL +99.625 ~ +103.307 (C.J. 22)",
+     "file": "PY1_22.glb"
+    },
+    {
+     "id": "PY1_23",
+     "name": "PY1 세그먼트 23 (TYPE E, 샤프트)",
+     "el": "EL +103.307 ~ +106.807 (C.J. 23)",
+     "file": "PY1_23.glb"
+    },
+    {
+     "id": "PY1_3",
+     "name": "PY1 세그먼트 3 (상부 경사다리)",
+     "el": "EL +40.425 ~ +44.425 (C.J. 3)",
+     "file": "PY1_3.glb"
+    },
+    {
+     "id": "PY1_4",
+     "name": "PY1 세그먼트 4 (상부 경사다리)",
+     "el": "EL +44.425 ~ +48.425 (C.J. 4)",
+     "file": "PY1_4.glb"
+    },
+    {
+     "id": "PY1_5",
+     "name": "PY1 세그먼트 5 (상부 경사다리)",
+     "el": "EL +48.425 ~ +52.425 (C.J. 5)",
+     "file": "PY1_5.glb"
+    },
+    {
+     "id": "PY1_6",
+     "name": "PY1 세그먼트 6 (상부 경사다리)",
+     "el": "EL +52.425 ~ +56.425 (C.J. 6)",
+     "file": "PY1_6.glb"
+    },
+    {
+     "id": "PY1_7",
+     "name": "PY1 세그먼트 7 (상부 경사다리)",
+     "el": "EL +56.425 ~ +60.425 (C.J. 7)",
+     "file": "PY1_7.glb"
+    },
+    {
+     "id": "PY1_8",
+     "name": "PY1 세그먼트 8 (상부 경사다리)",
+     "el": "EL +60.425 ~ +64.425 (C.J. 8)",
+     "file": "PY1_8.glb"
+    },
+    {
+     "id": "PY1_9",
+     "name": "PY1 세그먼트 9 (상부 경사다리)",
+     "el": "EL +64.425 ~ +68.425 (C.J. 9)",
+     "file": "PY1_9.glb"
+    },
+    {
+     "id": "PY1_FND",
+     "name": "PY1 기초 (푸팅+말뚝 16본)",
+     "el": "EL -0.029 ~ +4.871",
+     "file": "PY1_FND.glb"
+    },
+    {
+     "id": "PY1_a",
+     "name": "PY1 세그먼트 a (결합 기부)",
+     "el": "EL +4.871 ~ +8.871 (C.J. a)",
+     "file": "PY1_a.glb"
+    },
+    {
+     "id": "PY1_b",
+     "name": "PY1 세그먼트 b (중공 곡선 시작)",
+     "el": "EL +8.871 ~ +12.871 (C.J. b)",
+     "file": "PY1_b.glb"
+    },
+    {
+     "id": "PY1_c",
+     "name": "PY1 세그먼트 c (키홈·V루트)",
+     "el": "EL +12.871 ~ +16.425 (C.J. c)",
+     "file": "PY1_c.glb"
+    },
+    {
+     "id": "PY1_d",
+     "name": "PY1 세그먼트 d (분리 곡선 다리)",
+     "el": "EL +16.425 ~ +20.425 (C.J. d)",
+     "file": "PY1_d.glb"
+    },
+    {
+     "id": "PY1_e",
+     "name": "PY1 세그먼트 e (EC 통과·격벽)",
+     "el": "EL +20.425 ~ +24.425 (C.J. e)",
+     "file": "PY1_e.glb"
+    },
+    {
+     "id": "PY1_f",
+     "name": "PY1 세그먼트 f (벨리 원호 전환)",
+     "el": "EL +24.425 ~ +28.425 (C.J. f)",
+     "file": "PY1_f.glb"
+    },
+    {
+     "id": "PY1_g",
+     "name": "PY1 세그먼트 g (벨리·갤러리)",
+     "el": "EL +28.425 ~ +32.425 (C.J. g)",
+     "file": "PY1_g.glb"
+    },
+    {
+     "id": "PY1_top",
+     "name": "PY1 주탑 정부",
+     "el": "EL +106.807 ~ +109.871 (정점)",
+     "file": "PY1_top.glb"
+    }
+   ]
+  },
+  {
+   "group": "PY2",
+   "file": "PY2.glb",
+   "sizeKB": 101,
+   "objects": [
+    {
+     "id": "PY2_1",
+     "name": "PY2 세그먼트 1 (교축 대칭)",
+     "el": "EL +32.425 ~ +36.425 (C.J. 1)",
+     "file": "PY2_1.glb"
+    },
+    {
+     "id": "PY2_10",
+     "name": "PY2 세그먼트 10 (교축 대칭)",
+     "el": "EL +68.425 ~ +72.425 (C.J. 10)",
+     "file": "PY2_10.glb"
+    },
+    {
+     "id": "PY2_11",
+     "name": "PY2 세그먼트 11 (교축 대칭)",
+     "el": "EL +72.425 ~ +76.425 (C.J. 11)",
+     "file": "PY2_11.glb"
+    },
+    {
+     "id": "PY2_12",
+     "name": "PY2 세그먼트 12 (교축 대칭)",
+     "el": "EL +76.425 ~ +80.425 (C.J. 12)",
+     "file": "PY2_12.glb"
+    },
+    {
+     "id": "PY2_13",
+     "name": "PY2 세그먼트 13 (교축 대칭)",
+     "el": "EL +80.425 ~ +83.425 (C.J. 13)",
+     "file": "PY2_13.glb"
+    },
+    {
+     "id": "PY2_14",
+     "name": "PY2 세그먼트 14 (교축 대칭)",
+     "el": "EL +83.425 ~ +85.425 (C.J. 14)",
+     "file": "PY2_14.glb"
+    },
+    {
+     "id": "PY2_15",
+     "name": "PY2 세그먼트 15 (교축 대칭)",
+     "el": "EL +85.425 ~ +87.425 (C.J. 15)",
+     "file": "PY2_15.glb"
+    },
+    {
+     "id": "PY2_16",
+     "name": "PY2 세그먼트 16 (교축 대칭)",
+     "el": "EL +87.425 ~ +89.125 (C.J. 16)",
+     "file": "PY2_16.glb"
+    },
+    {
+     "id": "PY2_17",
+     "name": "PY2 세그먼트 17 (교축 대칭)",
+     "el": "EL +89.125 ~ +90.825 (C.J. 17)",
+     "file": "PY2_17.glb"
+    },
+    {
+     "id": "PY2_18",
+     "name": "PY2 세그먼트 18 (교축 대칭)",
+     "el": "EL +90.825 ~ +92.425 (C.J. 18)",
+     "file": "PY2_18.glb"
+    },
+    {
+     "id": "PY2_19",
+     "name": "PY2 세그먼트 19 (교축 대칭)",
+     "el": "EL +92.425 ~ +94.025 (C.J. 19)",
+     "file": "PY2_19.glb"
+    },
+    {
+     "id": "PY2_2",
+     "name": "PY2 세그먼트 2 (교축 대칭)",
+     "el": "EL +36.425 ~ +40.425 (C.J. 2)",
+     "file": "PY2_2.glb"
+    },
+    {
+     "id": "PY2_20",
+     "name": "PY2 세그먼트 20 (교축 대칭)",
+     "el": "EL +94.025 ~ +96.625 (C.J. 20)",
+     "file": "PY2_20.glb"
+    },
+    {
+     "id": "PY2_21",
+     "name": "PY2 세그먼트 21 (교축 대칭)",
+     "el": "EL +96.625 ~ +99.625 (C.J. 21)",
+     "file": "PY2_21.glb"
+    },
+    {
+     "id": "PY2_22",
+     "name": "PY2 세그먼트 22 (교축 대칭)",
+     "el": "EL +99.625 ~ +103.307 (C.J. 22)",
+     "file": "PY2_22.glb"
+    },
+    {
+     "id": "PY2_23",
+     "name": "PY2 세그먼트 23 (교축 대칭)",
+     "el": "EL +103.307 ~ +106.807 (C.J. 23)",
+     "file": "PY2_23.glb"
+    },
+    {
+     "id": "PY2_3",
+     "name": "PY2 세그먼트 3 (교축 대칭)",
+     "el": "EL +40.425 ~ +44.425 (C.J. 3)",
+     "file": "PY2_3.glb"
+    },
+    {
+     "id": "PY2_4",
+     "name": "PY2 세그먼트 4 (교축 대칭)",
+     "el": "EL +44.425 ~ +48.425 (C.J. 4)",
+     "file": "PY2_4.glb"
+    },
+    {
+     "id": "PY2_5",
+     "name": "PY2 세그먼트 5 (교축 대칭)",
+     "el": "EL +48.425 ~ +52.425 (C.J. 5)",
+     "file": "PY2_5.glb"
+    },
+    {
+     "id": "PY2_6",
+     "name": "PY2 세그먼트 6 (교축 대칭)",
+     "el": "EL +52.425 ~ +56.425 (C.J. 6)",
+     "file": "PY2_6.glb"
+    },
+    {
+     "id": "PY2_7",
+     "name": "PY2 세그먼트 7 (교축 대칭)",
+     "el": "EL +56.425 ~ +60.425 (C.J. 7)",
+     "file": "PY2_7.glb"
+    },
+    {
+     "id": "PY2_8",
+     "name": "PY2 세그먼트 8 (교축 대칭)",
+     "el": "EL +60.425 ~ +64.425 (C.J. 8)",
+     "file": "PY2_8.glb"
+    },
+    {
+     "id": "PY2_9",
+     "name": "PY2 세그먼트 9 (교축 대칭)",
+     "el": "EL +64.425 ~ +68.425 (C.J. 9)",
+     "file": "PY2_9.glb"
+    },
+    {
+     "id": "PY2_FND",
+     "name": "PY2 기초 (교축 대칭)",
+     "el": "EL -0.029 ~ +4.871",
+     "file": "PY2_FND.glb"
+    },
+    {
+     "id": "PY2_a",
+     "name": "PY2 세그먼트 a (교축 대칭)",
+     "el": "EL +4.871 ~ +8.871 (C.J. a)",
+     "file": "PY2_a.glb"
+    },
+    {
+     "id": "PY2_b",
+     "name": "PY2 세그먼트 b (교축 대칭)",
+     "el": "EL +8.871 ~ +12.871 (C.J. b)",
+     "file": "PY2_b.glb"
+    },
+    {
+     "id": "PY2_c",
+     "name": "PY2 세그먼트 c (교축 대칭)",
+     "el": "EL +12.871 ~ +16.425 (C.J. c)",
+     "file": "PY2_c.glb"
+    },
+    {
+     "id": "PY2_d",
+     "name": "PY2 세그먼트 d (교축 대칭)",
+     "el": "EL +16.425 ~ +20.425 (C.J. d)",
+     "file": "PY2_d.glb"
+    },
+    {
+     "id": "PY2_e",
+     "name": "PY2 세그먼트 e (교축 대칭)",
+     "el": "EL +20.425 ~ +24.425 (C.J. e)",
+     "file": "PY2_e.glb"
+    },
+    {
+     "id": "PY2_f",
+     "name": "PY2 세그먼트 f (교축 대칭)",
+     "el": "EL +24.425 ~ +28.425 (C.J. f)",
+     "file": "PY2_f.glb"
+    },
+    {
+     "id": "PY2_g",
+     "name": "PY2 세그먼트 g (교축 대칭)",
+     "el": "EL +28.425 ~ +32.425 (C.J. g)",
+     "file": "PY2_g.glb"
+    },
+    {
+     "id": "PY2_top",
+     "name": "PY2 주탑 정부 (교축 대칭)",
+     "el": "EL +106.807 ~ +109.871 (정점)",
+     "file": "PY2_top.glb"
+    }
+   ]
+  },
+  {
+   "group": "DECK",
+   "file": "DECK.glb",
+   "sizeKB": 534,
+   "objects": [
+    {
+     "id": "DECK_KC",
+     "name": "상판 세그먼트 KC",
+     "el": "STA 4+0305.5 ~ 4+0314.5",
+     "file": "DECK_KC.glb"
+    },
+    {
+     "id": "DECK_KS_N",
+     "name": "상판 세그먼트 KS_N",
+     "el": "STA 4+0521.5 ~ 4+0525.5",
+     "file": "DECK_KS_N.glb"
+    },
+    {
+     "id": "DECK_KS_S",
+     "name": "상판 세그먼트 KS_S",
+     "el": "STA 4+0094.5 ~ 4+0098.5",
+     "file": "DECK_KS_S.glb"
+    },
+    {
+     "id": "DECK_NHP",
+     "name": "상판 세그먼트 NHP",
+     "el": "STA 4+0405.0 ~ 4+0432.0",
+     "file": "DECK_NHP.glb"
+    },
+    {
+     "id": "DECK_NN01",
+     "name": "상판 세그먼트 NN01",
+     "el": "STA 4+0432.0 ~ 4+0453.5",
+     "file": "DECK_NN01.glb"
+    },
+    {
+     "id": "DECK_NN02",
+     "name": "상판 세그먼트 NN02",
+     "el": "STA 4+0453.5 ~ 4+0461.5",
+     "file": "DECK_NN02.glb"
+    },
+    {
+     "id": "DECK_NN03",
+     "name": "상판 세그먼트 NN03",
+     "el": "STA 4+0461.5 ~ 4+0473.5",
+     "file": "DECK_NN03.glb"
+    },
+    {
+     "id": "DECK_NN04",
+     "name": "상판 세그먼트 NN04",
+     "el": "STA 4+0473.5 ~ 4+0485.5",
+     "file": "DECK_NN04.glb"
+    },
+    {
+     "id": "DECK_NN05",
+     "name": "상판 세그먼트 NN05",
+     "el": "STA 4+0485.5 ~ 4+0497.5",
+     "file": "DECK_NN05.glb"
+    },
+    {
+     "id": "DECK_NN06",
+     "name": "상판 세그먼트 NN06",
+     "el": "STA 4+0497.5 ~ 4+0509.5",
+     "file": "DECK_NN06.glb"
+    },
+    {
+     "id": "DECK_NN07",
+     "name": "상판 세그먼트 NN07",
+     "el": "STA 4+0509.5 ~ 4+0521.5",
+     "file": "DECK_NN07.glb"
+    },
+    {
+     "id": "DECK_NP",
+     "name": "상판 세그먼트 NP",
+     "el": "STA 4+0525.5 ~ 4+0534.7",
+     "file": "DECK_NP.glb"
+    },
+    {
+     "id": "DECK_NS01",
+     "name": "상판 세그먼트 NS01",
+     "el": "STA 4+0398.5 ~ 4+0405.0",
+     "file": "DECK_NS01.glb"
+    },
+    {
+     "id": "DECK_NS02",
+     "name": "상판 세그먼트 NS02",
+     "el": "STA 4+0386.5 ~ 4+0398.5",
+     "file": "DECK_NS02.glb"
+    },
+    {
+     "id": "DECK_NS03",
+     "name": "상판 세그먼트 NS03",
+     "el": "STA 4+0374.5 ~ 4+0386.5",
+     "file": "DECK_NS03.glb"
+    },
+    {
+     "id": "DECK_NS04",
+     "name": "상판 세그먼트 NS04",
+     "el": "STA 4+0362.5 ~ 4+0374.5",
+     "file": "DECK_NS04.glb"
+    },
+    {
+     "id": "DECK_NS05",
+     "name": "상판 세그먼트 NS05",
+     "el": "STA 4+0350.5 ~ 4+0362.5",
+     "file": "DECK_NS05.glb"
+    },
+    {
+     "id": "DECK_NS06",
+     "name": "상판 세그먼트 NS06",
+     "el": "STA 4+0338.5 ~ 4+0350.5",
+     "file": "DECK_NS06.glb"
+    },
+    {
+     "id": "DECK_NS07",
+     "name": "상판 세그먼트 NS07",
+     "el": "STA 4+0326.5 ~ 4+0338.5",
+     "file": "DECK_NS07.glb"
+    },
+    {
+     "id": "DECK_NS08",
+     "name": "상판 세그먼트 NS08",
+     "el": "STA 4+0314.5 ~ 4+0326.5",
+     "file": "DECK_NS08.glb"
+    },
+    {
+     "id": "DECK_SHP",
+     "name": "상판 세그먼트 SHP",
+     "el": "STA 4+0188.0 ~ 4+0215.0",
+     "file": "DECK_SHP.glb"
+    },
+    {
+     "id": "DECK_SN01",
+     "name": "상판 세그먼트 SN01",
+     "el": "STA 4+0215.0 ~ 4+0221.5",
+     "file": "DECK_SN01.glb"
+    },
+    {
+     "id": "DECK_SN02",
+     "name": "상판 세그먼트 SN02",
+     "el": "STA 4+0221.5 ~ 4+0233.5",
+     "file": "DECK_SN02.glb"
+    },
+    {
+     "id": "DECK_SN03",
+     "name": "상판 세그먼트 SN03",
+     "el": "STA 4+0233.5 ~ 4+0245.5",
+     "file": "DECK_SN03.glb"
+    },
+    {
+     "id": "DECK_SN04",
+     "name": "상판 세그먼트 SN04",
+     "el": "STA 4+0245.5 ~ 4+0257.5",
+     "file": "DECK_SN04.glb"
+    },
+    {
+     "id": "DECK_SN05",
+     "name": "상판 세그먼트 SN05",
+     "el": "STA 4+0257.5 ~ 4+0269.5",
+     "file": "DECK_SN05.glb"
+    },
+    {
+     "id": "DECK_SN06",
+     "name": "상판 세그먼트 SN06",
+     "el": "STA 4+0269.5 ~ 4+0281.5",
+     "file": "DECK_SN06.glb"
+    },
+    {
+     "id": "DECK_SN07",
+     "name": "상판 세그먼트 SN07",
+     "el": "STA 4+0281.5 ~ 4+0293.5",
+     "file": "DECK_SN07.glb"
+    },
+    {
+     "id": "DECK_SN08",
+     "name": "상판 세그먼트 SN08",
+     "el": "STA 4+0293.5 ~ 4+0305.5",
+     "file": "DECK_SN08.glb"
+    },
+    {
+     "id": "DECK_SP",
+     "name": "상판 세그먼트 SP",
+     "el": "STA 4+0085.3 ~ 4+0094.5",
+     "file": "DECK_SP.glb"
+    },
+    {
+     "id": "DECK_SS01",
+     "name": "상판 세그먼트 SS01",
+     "el": "STA 4+0166.5 ~ 4+0188.0",
+     "file": "DECK_SS01.glb"
+    },
+    {
+     "id": "DECK_SS02",
+     "name": "상판 세그먼트 SS02",
+     "el": "STA 4+0158.5 ~ 4+0166.5",
+     "file": "DECK_SS02.glb"
+    },
+    {
+     "id": "DECK_SS03",
+     "name": "상판 세그먼트 SS03",
+     "el": "STA 4+0146.5 ~ 4+0158.5",
+     "file": "DECK_SS03.glb"
+    },
+    {
+     "id": "DECK_SS04",
+     "name": "상판 세그먼트 SS04",
+     "el": "STA 4+0134.5 ~ 4+0146.5",
+     "file": "DECK_SS04.glb"
+    },
+    {
+     "id": "DECK_SS05",
+     "name": "상판 세그먼트 SS05",
+     "el": "STA 4+0122.5 ~ 4+0134.5",
+     "file": "DECK_SS05.glb"
+    },
+    {
+     "id": "DECK_SS06",
+     "name": "상판 세그먼트 SS06",
+     "el": "STA 4+0110.5 ~ 4+0122.5",
+     "file": "DECK_SS06.glb"
+    },
+    {
+     "id": "DECK_SS07",
+     "name": "상판 세그먼트 SS07",
+     "el": "STA 4+0098.5 ~ 4+0110.5",
+     "file": "DECK_SS07.glb"
+    }
+   ]
+  },
+  {
+   "group": "CABLES",
+   "file": "CABLES.glb",
+   "sizeKB": 144,
+   "objects": [
+    {
+     "id": "CABLES",
+     "name": "케이블 72본 + 데크 정착구 (블리스터·트럼펫관·부트)",
+     "el": "선형도 002 좌표 + 정착구 설치도 169~174/상세도 175~179 실측 — 타입 19/27/31/37/48, IHD 내장(외피 동일)",
+     "file": "CABLES.glb"
+    }
+   ]
+  },
+  {
+   "group": "BEARINGS",
+   "file": "BEARINGS.glb",
+   "sizeKB": 30,
+   "objects": [
+    {
+     "id": "BEARINGS",
+     "name": "교량받침 + 윈드슈 (연직 8·주두부 4·단부 4)",
+     "el": "배치도 006/007 EL스택 확정 + 윈드슈 상세 164~166 실측 — 부유식(전 가동단), 본체 평면 근사",
+     "file": "BEARINGS.glb"
+    }
+   ]
+  },
+  {
+   "group": "FURNITURE",
+   "file": "FURNITURE.glb",
+   "sizeKB": 418,
+   "objects": [
+    {
+     "id": "FURNITURE",
+     "name": "상판 부속 (포장·도색·연석·난간·방호울타리·배수구)",
+     "el": "005 표준단면 실측 — 아스팔트T80/칼라아스콘T70/블럭3종/난간 CTC3,000/울타리 CTC3,000·2,000/배수슬롯 CTC500",
+     "file": "FURNITURE.glb"
+    }
+   ]
+  }
+ ]
+}
