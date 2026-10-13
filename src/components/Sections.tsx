@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import WarpedMesh from "./WarpedMesh";
 import { Logo } from "./Nav";
 import { featuredModel, indianaModels } from "@/data/models";
 import s from "./Sections.module.css";
@@ -58,7 +57,6 @@ export function Work() {
   const f = featuredModel;
   return (
     <section id="work" className="section">
-      <WarpedMesh cx={880} cy={220} radius={320} strength={0.5} step={64} origin="60% 30%" />
       <div className={`container section__inner`}>
         <div className="section__head">
           <div className="section__title">
@@ -174,7 +172,6 @@ export function HowItWorks() {
   ];
   return (
     <section id="how" className="section">
-      <WarpedMesh cx={360} cy={460} radius={280} strength={0.6} step={60} origin="25% 60%" />
       <div className="container section__inner" style={{ gap: 56 }}>
         <div className="section__head">
           <div className="section__title">
@@ -201,7 +198,6 @@ export function HowItWorks() {
 export function Software() {
   return (
     <section id="software" className="section section--surface">
-      <WarpedMesh cx={1100} cy={420} radius={360} strength={0.45} step={72} origin="75% 55%" />
       <div className="container section__inner">
         <div className="section__head">
           <div className="section__title">
@@ -302,7 +298,6 @@ export function Capabilities() {
   ];
   return (
     <section id="capabilities" className="section section--surface">
-      <WarpedMesh cx={580} cy={300} radius={300} strength={0.55} step={56} origin="40% 40%" />
       <div className="container section__inner">
         <div className="section__title">
           <p className="eyebrow">Capabilities</p>
@@ -367,7 +362,6 @@ export function Industries() {
   ];
   return (
     <section id="industries" className="section">
-      <WarpedMesh cx={1180} cy={260} radius={260} strength={0.7} step={64} origin="80% 35%" />
       <div className={`container section__inner ${s.industriesInner}`} style={{ flexDirection: "row" }}>
         <div className={s.industriesIntro}>
           <p className="eyebrow">Industries</p>
@@ -395,7 +389,6 @@ export function Industries() {
 export function Proof() {
   return (
     <section id="proof" className="section section--surface">
-      <WarpedMesh cx={300} cy={340} radius={340} strength={0.5} step={68} origin="20% 45%" />
       <div className="container section__inner">
         <div className="section__title">
           <p className="eyebrow">Customer story</p>
@@ -440,7 +433,6 @@ export function Proof() {
 export function CTA() {
   return (
     <section id="contact" className="section">
-      <WarpedMesh cx={800} cy={380} radius={300} strength={0.6} step={60} origin="55% 50%" />
       <div className="container section__inner">
         <div className={s.ctaCard}>
           <div className={s.ctaText}>

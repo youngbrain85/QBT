@@ -3,7 +3,6 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState } from "react";
-import WarpedMesh from "./WarpedMesh";
 import styles from "./Hero.module.css";
 import type { HeroPhase } from "./HeroScene";
 
@@ -28,7 +27,6 @@ export default function Hero() {
 
   return (
     <section id="top" className={`section ${styles.hero}`}>
-      <WarpedMesh cx={1010} cy={400} radius={250} strength={0.66} step={56} origin="66% 46%" strokeOpacity={0.55} strokeWidth={0.9} className={styles.heroMesh} />
       <div className={`container ${styles.inner}`}>
         <div className={styles.copy}>
           <p className="eyebrow">Innovate · Build · Transform</p>

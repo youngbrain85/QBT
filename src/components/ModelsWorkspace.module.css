@@ -9,6 +9,7 @@
 .library {
   flex: 0 1 300px;
   min-width: 0;
+  background: rgba(10, 13, 28, 0.8);
   border-right: 1px solid var(--line);
   display: flex;
   flex-direction: column;
@@ -270,6 +271,7 @@
 .details {
   flex: 0 1 320px;
   min-width: 0;
+  background: rgba(10, 13, 28, 0.8);
   border-left: 1px solid var(--line);
   display: flex;
   flex-direction: column;

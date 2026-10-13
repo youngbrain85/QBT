@@ -2,7 +2,7 @@
 .services {
   position: relative;
   border-bottom: 1px solid var(--line);
-  background: rgba(16, 20, 42, 0.7);
+  background: rgba(16, 20, 42, 0.6);
 }
 
 .servicesInner {

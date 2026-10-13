@@ -2,7 +2,7 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 40%, #121a3a 0%, #0b0e24 55%, #0a0d1c 100%);
+  background: transparent;
   touch-action: none;
 }
 

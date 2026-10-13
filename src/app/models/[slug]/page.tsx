@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
+import MeshBackdrop from "@/components/MeshBackdrop";
 import ModelsWorkspace from "@/components/ModelsWorkspace";
 import { findModel, models } from "@/data/models";
 
@@ -27,8 +28,9 @@ export default async function ModelPage({ params }: { params: Promise<Params> })
   if (!m) notFound();
   return (
     <>
+      <MeshBackdrop />
       <Nav compact />
-      <main style={{ display: "flex", flexDirection: "column" }}>
+      <main className="page" style={{ display: "flex", flexDirection: "column" }}>
         <ModelsWorkspace initialSlug={m.slug} />
       </main>
     </>

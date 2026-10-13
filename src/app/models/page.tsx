@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
+import MeshBackdrop from "@/components/MeshBackdrop";
 import ModelsWorkspace from "@/components/ModelsWorkspace";
 
 export const metadata: Metadata = {
@@ -10,8 +11,9 @@ export const metadata: Metadata = {
 export default function ModelsPage() {
   return (
     <>
+      <MeshBackdrop />
       <Nav compact />
-      <main style={{ display: "flex", flexDirection: "column" }}>
+      <main className="page" style={{ display: "flex", flexDirection: "column" }}>
         <ModelsWorkspace />
       </main>
     </>
