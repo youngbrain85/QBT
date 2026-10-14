@@ -35,14 +35,14 @@ export default function Hero() {
           <h1 className={`display ${styles.title}`}>Physical AI. Digital 3D World.</h1>
           <p className={styles.lede}>AI that turns field capture into measurable digital twins of bridges, buildings and plants.</p>
           <div className={styles.ctas}>
-            <Link href="/#contact" className="btn btn--primary">
-              Book a demo
+            <Link href="/models" className="btn btn--primary">
+              3D demo
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <Link href="/models" className="btn btn--ghost">
-              Open the 3D viewer
+            <Link href="/#work" className="btn btn--ghost">
+              View our work
             </Link>
           </div>
           <ul className={`mono ${styles.tags}`}>

@@ -5,6 +5,7 @@ import { featuredModel, indianaModels } from "@/data/models";
 import s from "./Sections.module.css";
 
 const APP_URL = "https://wonsan-webapp-en.vercel.app/";
+const APP_MODEL_URL = "https://wonsan-webapp-en.vercel.app/model";
 const SEGMENT_VIEWER_URL = "https://youngbrain85.github.io/wonsan-anmyeon-bridge-3d/";
 
 function Arrow({ dark = false }: { dark?: boolean }) {
@@ -82,6 +83,13 @@ export function Work() {
             <p>
               Two-pylon steel–concrete composite cable-stayed bridge, 450 m long with 105 m diamond pylons. {f.summary}
             </p>
+            <p>
+              The model is in service in the{" "}
+              <a href={APP_URL} className="link" target="_blank" rel="noreferrer">
+                JJ InfraData inspection web app
+              </a>
+              , where inspectors log damage on it and the structure is graded from those records.
+            </p>
             <dl className="spec">
               <div>
                 <dt>Length</dt>
@@ -104,6 +112,9 @@ export function Work() {
               <Link href={`/models/${f.slug}`} className="btn btn--primary">
                 Open in the 3D viewer <Arrow dark />
               </Link>
+              <a href={APP_MODEL_URL} className="btn btn--ghost" target="_blank" rel="noreferrer">
+                Inspection app · 3D View
+              </a>
               <a href={SEGMENT_VIEWER_URL} className="btn btn--ghost" target="_blank" rel="noreferrer">
                 Segment review viewer
               </a>
@@ -113,21 +124,26 @@ export function Work() {
 
         <div className="grid">
           <figure className={`card card--ground ${s.figure}`}>
-            <Image src="/renders/wonsan-anmyeon-pylon.png" alt="Wireframe close-up of a diamond pylon with its pile cap and piles" width={1200} height={1500} style={{ objectPosition: "50% 30%" }} />
+            <a href={APP_MODEL_URL} target="_blank" rel="noreferrer">
+              <Image src="/renders/app-en-3dview.png" alt="JJ InfraData inspection web app, 3D View page: member tree with pylons, foundations, deck and girders, cables, bearings and furniture beside the Wonsan–Anmyeon Bridge model" width={1600} height={900} style={{ objectPosition: "0 0" }} />
+            </a>
             <figcaption>
-              <strong>Pylon PY1 in 32 parts.</strong> Lofted from the section table: outer width, void and leg depth per construction joint, 0.8 m rings.
+              <strong>Live in the inspection web app.</strong> The same 1,452-mesh model drives the JJ InfraData 3D View: a member tree that isolates any of the 73 segments, a condition-grade heatmap and damage markers.{" "}
+              <a href={APP_MODEL_URL} className="link" target="_blank" rel="noreferrer">
+                Open the 3D View
+              </a>
             </figcaption>
           </figure>
           <figure className={`card card--ground ${s.figure}`}>
-            <Image src="/renders/wonsan-anmyeon-side.png" alt="Side wireframe view of the bridge showing the cable fans from both pylons" width={1600} height={900} />
+            <Image src="/renders/wonsan-pylon-segments.png" alt="Pylon PY1 alone, its 32 parts tinted alternately so each segment reads as its own object" width={1200} height={900} style={{ objectPosition: "50% 40%" }} />
             <figcaption>
-              <strong>72 stay cables with anchorages.</strong> Cable geometry refined over several revisions against quantity tables, installation drawings and close-up photographs.
+              <strong>By member, by segment.</strong> Pylon PY1 on its own: 32 parts, each its own object with an elevation range, so any member or any segment can be isolated, measured and visualized.
             </figcaption>
           </figure>
           <figure className={`card card--ground ${s.figure}`}>
-            <Image src="/renders/app-segment-viewer.png" alt="Segment review viewer with a list of pylon segments, elevation ranges and approval badges beside the model" width={1600} height={900} style={{ objectPosition: "0 0" }} />
+            <Image src="/renders/wonsan-pylon-damage.png" alt="Damage markers for a crack, spalling, leakage and rebar exposure drawn on the 3D faces of pylon PY1, with an inspection record panel listing each one with its size and grade" width={1200} height={900} style={{ objectPosition: "50% 45%" }} />
             <figcaption>
-              <strong>Reviewed segment by segment.</strong> Each of the 73 models carries its elevation range and approval status; section clipping shows the hollow interiors.
+              <strong>Damage on the surface, records behind it.</strong> Inspectors mark cracks, spalls and leaks directly on the 3D faces; every marker opens its inspection record (type, size, grade, photo, date) and feeds the map sheets.
             </figcaption>
           </figure>
         </div>
@@ -176,7 +192,11 @@ export function HowItWorks() {
         <div className="section__head">
           <div className="section__title">
             <p className="eyebrow">How it works</p>
-            <h2 className="display">From drawings and photos to a reviewed, measured BIM twin.</h2>
+            <h2 className="display">
+              From Drawings and Photos
+              <br />
+              To 3D Digital Twin
+            </h2>
           </div>
           <p className="section__lede">The pipeline we ran on the Wonsan–Anmyeon Bridge. Each step leaves a file you can open: a parameter table, a viewer, a measurement JSON, an IFC.</p>
         </div>
@@ -207,8 +227,8 @@ export function Software() {
           <p className="section__lede">Bridge visual inspection platform built on the Wonsan–Anmyeon twin. Inspectors log damage on the 3D model; the system scores the structure.</p>
         </div>
         <article className={`card card--ground ${s.softwareMain}`}>
-          <a href={APP_URL} target="_blank" rel="noreferrer">
-            <Image src="/renders/app-mbi-3dview.png" alt="Inspection platform 3D view: a member tree on the left and the cable-stayed bridge model with a condition heatmap toggle" width={1600} height={900} />
+          <a href={APP_MODEL_URL} target="_blank" rel="noreferrer">
+            <Image src="/renders/app-en-3dview.png" alt="Inspection web app 3D View: a member tree on the left and the cable-stayed bridge model with a condition-grade heatmap toggle" width={1600} height={900} />
           </a>
           <div className={s.softwareBody}>
             <p className="eyebrow" style={{ fontSize: 12 }}>
@@ -227,7 +247,7 @@ export function Software() {
         <div className="grid">
           <article className={`card card--ground ${s.shot}`} style={{ flexBasis: 420 }}>
             <a href={APP_URL} target="_blank" rel="noreferrer">
-              <Image src="/renders/app-mbi-inspection.png" alt="Inspection platform dashboard with a safety grade card, converted defect score and grade distribution" width={1600} height={900} />
+              <Image src="/renders/app-en-dashboard.png" alt="Inspection web app dashboard with the target bridge, a safety grade card, converted defect score and grade distribution" width={1600} height={900} />
             </a>
             <div className={s.shotBody}>
               <h3>Dashboard and safety grade</h3>
@@ -245,9 +265,13 @@ export function Software() {
           </article>
         </div>
         <p className={`mono ${s.note}`}>
-          Screens shown from the Korean build. English version:{" "}
+          English build:{" "}
           <a href={APP_URL} className="link" target="_blank" rel="noreferrer">
             wonsan-webapp-en.vercel.app
+          </a>{" "}
+          · 3D View at{" "}
+          <a href={APP_MODEL_URL} className="link" target="_blank" rel="noreferrer">
+            /model
           </a>
         </p>
       </div>
