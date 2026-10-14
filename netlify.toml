@@ -1,0 +1,4 @@
+# Netlify build settings for the QBTTEXAS site (Next.js, served through Netlify's Next.js runtime)
+[build]
+  command = "next build"
+  publish = ".next"
