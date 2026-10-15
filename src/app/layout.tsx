@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "QBTTEXAS LLC — Physical AI. Digital 3D World.",
     description:
       "AI that turns field capture into measurable digital twins of bridges, buildings and plants.",
-    images: ["/renders/wonsan-anmyeon.png"],
+    images: ["/renders/cable-stayed-bridge.png"],
   },
 };
 

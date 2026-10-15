@@ -55,7 +55,7 @@ export default function Hero() {
         <div className={styles.stage} aria-hidden="true">
           <HeroScene onPhase={setPhase} />
           <div className={`mono ${styles.hud}`}>
-            <span>Wonsan–Anmyeon Bridge · cable-stayed</span>
+            <span>450 m cable-stayed bridge · Korea</span>
             <span>240k surface points · LOD 400</span>
             <span>IFC 4.3 · ±8 mm</span>
           </div>

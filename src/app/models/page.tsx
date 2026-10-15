@@ -4,7 +4,7 @@ import ModelsWorkspace from "@/components/ModelsWorkspace";
 
 export const metadata: Metadata = {
   title: "3D model viewer — QBTTEXAS",
-  description: "Open the Wonsan–Anmyeon Bridge twin and nine Indiana highway bridge models in the browser: shaded, wireframe or point cloud, with section cuts and element dimensions.",
+  description: "Open the 450 m cable-stayed bridge twin and nine Indiana highway bridge models in the browser: shaded, wireframe or point cloud, with section cuts and element dimensions.",
 };
 
 export default function ModelsPage() {

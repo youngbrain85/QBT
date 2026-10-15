@@ -19,11 +19,11 @@ npm start
 |---|---|
 | `src/app/page.tsx` | Homepage: hero with a live point-cloud scene, services, work samples, how it works, software, capabilities, industries, proof, contact |
 | `src/app/models` | 3D model viewer page (`/models` and `/models/[slug]`): model library, shaded / wireframe / point-cloud modes, camera presets, section cut, click-to-measure |
-| `src/components/HeroScene.tsx` | Hero animation: the Wonsan–Anmyeon Bridge GLBs are sampled into ~240k surface points coloured by elevation (LiDAR style), revealed by a scan sweep, then the BIM edges build up and inspection pins appear |
+| `src/components/HeroScene.tsx` | Hero animation: the cable-stayed bridge GLBs are sampled into ~240k surface points coloured by elevation (LiDAR style), revealed by a scan sweep, then the BIM edges build up and inspection pins appear |
 | `src/components/ModelViewer.tsx` | Three.js viewer used by the models page (meshopt-compressed GLB, EdgesGeometry wireframe, clipping plane, raycast picking) |
 | `src/components/WarpedMesh.tsx` | The warped wire-grid backdrop; every section gets a different well centre and strength |
 | `src/data/models.ts` | Bridge catalogue: names, locations, structure types, files |
-| `public/models/wonsan` | Wonsan–Anmyeon Bridge, six measurement-based groups (pylons, deck, cables, bearings, furniture), meshopt |
+| `public/models/cable-stayed` | 450 m cable-stayed bridge in Korea, six measurement-based groups (pylons, deck, cables, bearings, furniture), meshopt |
 | `public/models/indiana` | Nine Indiana highway bridges from INDOT plan sets, meshopt-compressed GLB |
 | `public/renders` | Wireframe renders and product screenshots used on the homepage and as viewer thumbnails |
 

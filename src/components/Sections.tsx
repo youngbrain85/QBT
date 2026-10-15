@@ -71,13 +71,13 @@ export function Work() {
 
         <article className={`card ${s.featured}`}>
           <Link href={`/models/${f.slug}`} className={s.featuredImage}>
-            <Image src={f.render} alt="Wireframe render of the Wonsan–Anmyeon Bridge: two diamond pylons on pile foundations, deck and 72 stay cables" fill sizes="(max-width: 900px) 100vw, 66vw" priority />
+            <Image src={f.render} alt="Wireframe render of the cable-stayed bridge: two diamond pylons on pile foundations, deck and 72 stay cables" fill sizes="(max-width: 900px) 100vw, 66vw" priority />
             <span className={`mono ${s.cornerTag}`}>Featured · Cable-stayed · LOD 400</span>
             <span className={`mono ${s.cornerStat}`}>1,452 meshes · 73 segments</span>
           </Link>
           <div className={s.featuredBody}>
             <p className="eyebrow" style={{ fontSize: 12 }}>
-              Taean, Korea
+              South Korea · sea crossing
             </p>
             <h3 className="display">{f.name}</h3>
             <p>
@@ -125,7 +125,7 @@ export function Work() {
         <div className="grid">
           <figure className={`card card--ground ${s.figure}`}>
             <a href={APP_MODEL_URL} target="_blank" rel="noreferrer">
-              <Image src="/renders/app-en-3dview.png" alt="JJ InfraData inspection web app, 3D View page: member tree with pylons, foundations, deck and girders, cables, bearings and furniture beside the Wonsan–Anmyeon Bridge model" width={1600} height={900} style={{ objectPosition: "0 0" }} />
+              <Image src="/renders/app-en-3dview.png" alt="JJ InfraData inspection web app, 3D View page: member tree with pylons, foundations, deck and girders, cables, bearings and furniture beside the cable-stayed bridge model" width={1600} height={900} style={{ objectPosition: "0 0" }} />
             </a>
             <figcaption>
               <strong>Live in the inspection web app.</strong> The same 1,452-mesh model drives the JJ InfraData 3D View: a member tree that isolates any of the 73 segments, a condition-grade heatmap and damage markers.{" "}
@@ -135,13 +135,13 @@ export function Work() {
             </figcaption>
           </figure>
           <figure className={`card card--ground ${s.figure}`}>
-            <Image src="/renders/wonsan-pylon-segments.png" alt="Pylon PY1 alone, its 32 parts tinted alternately so each segment reads as its own object" width={1200} height={900} style={{ objectPosition: "50% 40%" }} />
+            <Image src="/renders/pylon-segments.png" alt="Pylon PY1 alone, its 32 parts tinted alternately so each segment reads as its own object" width={1200} height={900} style={{ objectPosition: "50% 40%" }} />
             <figcaption>
               <strong>By member, by segment.</strong> Pylon PY1 on its own: 32 parts, each its own object with an elevation range, so any member or any segment can be isolated, measured and visualized.
             </figcaption>
           </figure>
           <figure className={`card card--ground ${s.figure}`}>
-            <Image src="/renders/wonsan-pylon-damage.png" alt="Damage markers for a crack, spalling, leakage and rebar exposure drawn on the 3D faces of pylon PY1, with an inspection record panel listing each one with its size and grade" width={1200} height={900} style={{ objectPosition: "50% 45%" }} />
+            <Image src="/renders/pylon-damage.png" alt="Damage markers for a crack, spalling, leakage and rebar exposure drawn on the 3D faces of pylon PY1, with an inspection record panel listing each one with its size and grade" width={1200} height={900} style={{ objectPosition: "50% 45%" }} />
             <figcaption>
               <strong>Damage on the surface, records behind it.</strong> Inspectors mark cracks, spalls and leaks directly on the 3D faces; every marker opens its inspection record (type, size, grade, photo, date) and feeds the map sheets.
             </figcaption>
@@ -168,7 +168,7 @@ export function Work() {
           ))}
         </div>
         <div className={s.footLine}>
-          <p className="mono">10 bridges · Korea and Indiana · every model delivered as GLB, the Wonsan–Anmyeon twin also as IFC4</p>
+          <p className="mono">10 bridges · Korea and Indiana · every model delivered as GLB, the cable-stayed twin also as IFC4</p>
           <Link href="/models" className="link">
             Open the model library →
           </Link>
@@ -198,7 +198,7 @@ export function HowItWorks() {
               To 3D Digital Twin
             </h2>
           </div>
-          <p className="section__lede">The pipeline we ran on the Wonsan–Anmyeon Bridge. Each step leaves a file you can open: a parameter table, a viewer, a measurement JSON, an IFC.</p>
+          <p className="section__lede">The pipeline we ran on a 450 m cable-stayed bridge in Korea. Each step leaves a file you can open: a parameter table, a viewer, a measurement JSON, an IFC.</p>
         </div>
         <ol className={s.steps}>
           {steps.map(([title, body, tag], i) => (
@@ -224,7 +224,7 @@ export function Software() {
             <p className="eyebrow">Software</p>
             <h2 className="display">The twin is a working tool, not a render.</h2>
           </div>
-          <p className="section__lede">Bridge visual inspection platform built on the Wonsan–Anmyeon twin. Inspectors log damage on the 3D model; the system scores the structure.</p>
+          <p className="section__lede">Bridge visual inspection platform built on the cable-stayed bridge twin. Inspectors log damage on the 3D model; the system scores the structure.</p>
         </div>
         <article className={`card card--ground ${s.softwareMain}`}>
           <a href={APP_MODEL_URL} target="_blank" rel="noreferrer">
@@ -265,13 +265,12 @@ export function Software() {
           </article>
         </div>
         <p className={`mono ${s.note}`}>
-          English build:{" "}
           <a href={APP_URL} className="link" target="_blank" rel="noreferrer">
-            wonsan-webapp-en.vercel.app
+            Open the inspection app
           </a>{" "}
-          · 3D View at{" "}
+          · English build ·{" "}
           <a href={APP_MODEL_URL} className="link" target="_blank" rel="noreferrer">
-            /model
+            3D View
           </a>
         </p>
       </div>
