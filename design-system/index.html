@@ -57,10 +57,12 @@
     <h1 class="display h1" style="max-width: 9ch">QBTTEXAS Design System</h1>
     <p class="lede">The tokens, type, motifs and components behind qbttexas.netlify.app. Dark engineering surface, warm off-white ink, one cyan wire accent reserved for the hero.</p>
     <div style="display:flex; flex-wrap:wrap; gap:12px">
-      <a class="btn btn--primary" href="tokens/qbttexas.tokens.json" download>Download tokens (JSON)</a>
-      <a class="btn btn--ghost" href="css/tokens.css" download>tokens.css</a>
-      <a class="btn btn--ghost" href="css/components.css" download>components.css</a>
+      <a class="btn btn--primary" href="tokens/qbttexas.tokens.json" download data-dl="qbttexas.tokens.json">Download tokens (JSON)</a>
+      <a class="btn btn--ghost" href="css/tokens.css" download data-dl="tokens.css">tokens.css</a>
+      <a class="btn btn--ghost" href="css/components.css" download data-dl="components.css">components.css</a>
+      <a class="btn btn--ghost" href="https://github.com/youngbrain85/QBT/tree/main/design-system" target="_blank" rel="noreferrer">Full package on GitHub</a>
     </div>
+    <p class="mono" id="dl-note" style="font-size:12px; color:var(--dim); display:none"></p>
   </div>
 </section>
 
@@ -208,5 +210,35 @@
 </section>
 
 <footer class="section motif--drafting" style="border-bottom:0"><div class="container" style="padding:40px var(--gutter); display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px"><span class="mono" style="font-size:12px; color:var(--dim)">QBTTEXAS LLC · design system v1.0</span><span class="mono" style="font-size:12px; color:var(--dim)">tokens/qbttexas.tokens.json · css/tokens.css · css/components.css</span></div></footer>
+<script>
+  // In the claude.ai artifact viewer plain download links are inert; hand the file over through
+  // the downloads capability instead. Anywhere else (the zip, GitHub Pages) the links work as-is.
+  (function () {
+    const note = document.getElementById('dl-note');
+    let dlPromise = null;
+    const getDownloads = () => {
+      if (!window.claude || typeof window.claude.use !== 'function') return Promise.resolve(null);
+      if (!dlPromise) dlPromise = window.claude.use('downloads').catch(() => null);
+      return dlPromise;
+    };
+    document.querySelectorAll('a[data-dl]').forEach((a) => {
+      a.addEventListener('click', async (e) => {
+        if (!window.claude || typeof window.claude.use !== 'function') return; // normal link
+        e.preventDefault();
+        const dl = await getDownloads();
+        if (!dl) { note.style.display = 'block'; note.textContent = 'Downloads are not available in this view. Use the GitHub package.'; return; }
+        try {
+          const res = await fetch(a.getAttribute('href'));
+          const data = await res.text();
+          await dl.save({ filename: a.dataset.dl, data });
+          note.style.display = 'block'; note.textContent = 'Saved ' + a.dataset.dl + '.';
+        } catch (err) {
+          if (err && err.code === 'declined') return;
+          note.style.display = 'block'; note.textContent = 'Could not save ' + a.dataset.dl + ' (' + ((err && err.code) || 'error') + ').';
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>
