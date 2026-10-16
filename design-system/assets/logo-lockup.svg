@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="40" viewBox="0 0 200 40" fill="none">
+  <g transform="translate(4 5)">
+    <path d="M15 2 27 9v12l-12 7L3 21V9l12-7Z" stroke="#F2EFE9" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M15 2v12m0 0 12-5M15 14 3 9m12 5v14" stroke="#F2EFE9" stroke-width="1.2" opacity="0.6"/>
+  </g>
+  <text x="44" y="27" font-family="Anton, Impact, sans-serif" font-size="20" letter-spacing="1.2" fill="#F2EFE9">QBTTEXAS</text>
+</svg>

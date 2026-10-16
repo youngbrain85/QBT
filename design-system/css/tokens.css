@@ -1,0 +1,79 @@
+/* QBTTEXAS design tokens — generated from tokens/qbttexas.tokens.json */
+:root {
+  /* colour */
+  --ground: #0a0d1c;
+  --surface: #10142a;
+  --surface-2: #161b33;
+  --line: #1f2540;
+  --line-2: #242b47;
+  --line-3: #2e3657;
+  --ink: #f2efe9;
+  --ink-2: #b8b3ab;
+  --muted: #9a9690;
+  --dim: #85817a;
+  --wire: #6fcdeb;
+  --hero-glow: #141c40;
+  --grade-b: #6fcdeb;
+  --grade-c: #e0b341;
+  --grade-d: #e05a4e;
+  --ramp-0: #38d454;
+  --ramp-1: #b8e64d;
+  --ramp-2: #fad647;
+  --ramp-3: #ff8c1f;
+  --ramp-4: #ff332e;
+
+  /* type */
+  --font-display: "Anton", Impact, sans-serif;
+  --font-body: "Montserrat", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --fs-h1: clamp(52px, 6.4vw, 84px);
+  --fs-h2: clamp(32px, 4vw, 44px);
+  --fs-h3: 30px;
+  --fs-subhead: 20px;
+  --fs-lede: 19px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-eyebrow: 13px;
+  --fs-label: 11px;
+  --fs-mono: 12px;
+
+  /* space & layout */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --section-y: 104px;
+  --container-max: 1280px;
+  --gutter: 40px;
+
+  /* shape */
+  --radius-control: 6px;
+  --radius-card: 12px;
+  --radius-pill: 999px;
+
+  /* size */
+  --size-button: 52px;
+  --size-button-sm: 44px;
+  --size-tool: 36px;
+
+  /* motion */
+  --motion-control: 150ms;
+  --motion-hero-loop: 20s;
+  --motion-breathe: 12s;
+
+  /* motif */
+  --grid-line: rgba(242, 239, 233, 0.07);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --section-y: 72px;
+    --gutter: 16px;
+  }
+}

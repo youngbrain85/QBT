@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QBTTEXAS Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  .ds-nav { position: sticky; top: 0; z-index: 5; background: rgba(10,13,28,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .ds-nav .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 64px; }
+  .ds-nav nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 14px; color: var(--ink-2); }
+  .ds-nav nav a:hover { color: var(--ink); }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .swatch { border: 1px solid var(--line-2); border-radius: var(--radius-card); overflow: hidden; background: var(--surface); }
+  .swatch i { display: block; height: 84px; }
+  .swatch div { padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
+  .swatch b { font-weight: 600; font-size: 14px; }
+  .swatch span { font-size: 12px; color: var(--muted); }
+  .ramp { height: 28px; border-radius: 6px; background: linear-gradient(90deg, var(--ramp-0), var(--ramp-1), var(--ramp-2), var(--ramp-3), var(--ramp-4)); border: 1px solid var(--line-2); }
+  .specimen { display: flex; flex-direction: column; gap: 28px; }
+  .specimen > div { display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: baseline; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .specimen .label { padding-top: 6px; }
+  .rule { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+  .rule i { display: block; background: var(--wire); opacity: .9; }
+  .rule span { font-family: var(--font-mono); font-size: 11px; color: var(--dim); display: block; margin-top: 6px; }
+  .demo { border: 1px solid var(--line-2); border-radius: var(--radius-card); overflow: hidden; }
+  .demo__bar { padding: 10px 16px; border-bottom: 1px solid var(--line-2); font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); background: var(--surface); }
+  .demo__body { padding: 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+  .dodont { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .dodont .card__body { gap: 10px; }
+  .dodont ul { display: flex; flex-direction: column; gap: 8px; color: var(--muted); font-size: 15px; padding-left: 18px; list-style: disc; }
+  .dodont b { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+  code { font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
+  pre { margin: 0; padding: 16px 20px; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--radius-card); font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: var(--ink-2); overflow: auto; }
+  .viewer { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .viewer .card__body { gap: 6px; }
+  .viewer i { display: block; height: 10px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<header class="ds-nav">
+  <div class="container">
+    <a class="wordmark" href="#top"><img src="assets/logo-mark.svg" width="26" height="26" alt="">QBTTEXAS</a>
+    <nav>
+      <a href="#brand">Brand</a><a href="#color">Colour</a><a href="#type">Type</a><a href="#layout">Layout</a><a href="#motif">Motifs</a><a href="#components">Components</a><a href="#viewer">3D viewer</a><a href="#rules">Rules</a>
+    </nav>
+  </div>
+</header>
+
+<section id="top" class="section hero">
+  <div class="container section__inner">
+    <p class="eyebrow">Design system · v1.0 · 2026-10</p>
+    <h1 class="display h1" style="max-width: 9ch">QBTTEXAS Design System</h1>
+    <p class="lede">The tokens, type, motifs and components behind qbttexas.netlify.app. Dark engineering surface, warm off-white ink, one cyan wire accent reserved for the hero.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:12px">
+      <a class="btn btn--primary" href="tokens/qbttexas.tokens.json" download>Download tokens (JSON)</a>
+      <a class="btn btn--ghost" href="css/tokens.css" download>tokens.css</a>
+      <a class="btn btn--ghost" href="css/components.css" download>components.css</a>
+    </div>
+  </div>
+</section>
+
+<section id="brand" class="section motif--drafting">
+  <div class="container section__inner">
+    <div class="section__head"><div class="section__title"><p class="eyebrow">Brand</p><h2 class="display h2">Physical AI. Digital 3D World.</h2></div>
+      <p class="section__lede">Innovate · Build · Transform. The voice is an engineer's: short sentences, measured claims, files you can open.</p></div>
+    <div class="two">
+      <div class="card card--ground"><div class="demo__bar">Logo lock-up · assets/logo-lockup.svg</div><div class="demo__body" style="padding:48px"><img src="assets/logo-lockup.svg" width="200" height="40" alt="QBTTEXAS lock-up"></div></div>
+      <div class="card card--ground"><div class="demo__bar">Mark · assets/logo-mark.svg · min 20 px</div><div class="demo__body" style="padding:48px; gap:32px"><img src="assets/logo-mark.svg" width="64" height="64" alt=""><img src="assets/logo-mark.svg" width="30" height="30" alt=""><img src="assets/logo-mark.svg" width="20" height="20" alt=""></div></div>
+    </div>
+    <div class="card"><div class="card__body"><p class="label">Wordmark</p><p>Set in <b>Anton</b>, 20 px, letter-spacing 0.06 em, uppercase, next to the isometric cube mark at 26–30 px. The footer repeats the wordmark at giant size (display, clamp 80–220 px) as the page's last gesture.</p></div></div>
+  </div>
+</section>
+
+<section id="color" class="section motif--drafting motif--drafting-surface">
+  <div class="container section__inner">
+    <div class="section__head"><div class="section__title"><p class="eyebrow">Colour</p><h2 class="display h2">Navy ground, warm ink, one wire.</h2></div>
+      <p class="section__lede">Monochrome by default. The cyan wire exists only in the hero mesh, the scan plane and segment tints; everywhere else, contrast comes from ink levels and hairlines.</p></div>
+    <div class="swatches">
+      <div class="swatch"><i style="background:#0a0d1c"></i><div><b>ground</b><span>#0A0D1C · page background</span></div></div>
+      <div class="swatch"><i style="background:#10142a"></i><div><b>surface</b><span>#10142A · raised sections, cards</span></div></div>
+      <div class="swatch"><i style="background:#161b33"></i><div><b>surface-2</b><span>#161B33 · selected rows</span></div></div>
+      <div class="swatch"><i style="background:#1f2540"></i><div><b>line</b><span>#1F2540 · section dividers</span></div></div>
+      <div class="swatch"><i style="background:#242b47"></i><div><b>line-2</b><span>#242B47 · card borders</span></div></div>
+      <div class="swatch"><i style="background:#2e3657"></i><div><b>line-3</b><span>#2E3657 · buttons, inputs</span></div></div>
+      <div class="swatch"><i style="background:#f2efe9"></i><div><b>ink</b><span>#F2EFE9 · headlines, primary button</span></div></div>
+      <div class="swatch"><i style="background:#b8b3ab"></i><div><b>ink-2</b><span>#B8B3AB · ledes, nav</span></div></div>
+      <div class="swatch"><i style="background:#9a9690"></i><div><b>muted</b><span>#9A9690 · body on dark</span></div></div>
+      <div class="swatch"><i style="background:#85817a"></i><div><b>dim</b><span>#85817A · labels, mono notes</span></div></div>
+      <div class="swatch"><i style="background:#6fcdeb"></i><div><b>wire</b><span>#6FCDEB · hero mesh only</span></div></div>
+      <div class="swatch"><i style="background:#141c40"></i><div><b>hero-glow</b><span>#141C40 · hero gradient centre</span></div></div>
+    </div>
+    <div class="two">
+      <div class="card"><div class="card__body"><p class="label">Elevation ramp · point clouds</p><div class="ramp"></div><p class="mono muted" style="font-size:12px">#38D454 → #B8E64D → #FAD647 → #FF8C1F → #FF332E · low to high, t^0.8</p></div></div>
+      <div class="card"><div class="card__body"><p class="label">Condition grades · inspection twin</p><div style="display:flex; gap:10px; flex-wrap:wrap"><span class="grade grade--b">Grade B</span><span class="grade grade--c">Grade C</span><span class="grade grade--d">Grade D</span></div><p class="mono muted" style="font-size:12px">B #6FCDEB · C #E0B341 · D #E05A4E · A/E inherit ink / dim</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="type" class="section motif--drafting">
+  <div class="container section__inner">
+    <div class="section__head"><div class="section__title"><p class="eyebrow">Type</p><h2 class="display h2">Anton for the headline, Montserrat for the work, Plex Mono for the readout.</h2></div>
+      <p class="section__lede">Google Fonts: Anton 400 · Montserrat 400/500/600/700 · IBM Plex Mono 400/500.</p></div>
+    <div class="specimen">
+      <div><p class="label">h1 · Anton · clamp(52, 6.4vw, 84) · 0.98</p><p class="display h1">Physical AI.<br>Digital 3D World.</p></div>
+      <div><p class="label">h2 · Anton · clamp(32, 4vw, 44) · 1.1</p><p class="display h2">From Drawings and Photos<br>To 3D Digital Twin</p></div>
+      <div><p class="label">h3 · Anton · 30 · 1.1</p><p class="display h3">Cable-stayed Bridge, Korea</p></div>
+      <div><p class="label">subhead · Montserrat 600 · 20</p><p class="subhead">Member tree, segment isolation, damage markers</p></div>
+      <div><p class="label">lede · Montserrat 400 · 19 · ink-2</p><p class="lede">AI that turns field capture into measurable digital twins of bridges, buildings and plants.</p></div>
+      <div><p class="label">body · Montserrat 400 · 16 · muted</p><p class="muted">Modeled segment by segment from the drawings and site photographs: two diamond pylons in 32 parts, 37 deck segments, 72 stay cables with guide pipes and dampers.</p></div>
+      <div><p class="label">eyebrow · Plex Mono · 13 · 0.14em · caps</p><p class="eyebrow">Innovate · Build · Transform</p></div>
+      <div><p class="label">label · Plex Mono · 11 · 0.1em · caps</p><p class="label">Deliverable</p></div>
+      <div><p class="label">mono · Plex Mono · 12 · dim</p><p class="mono" style="font-size:12px; color:var(--dim)">GLB · IFC4 · measurements · 1,452 meshes · 73 segments</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="layout" class="section motif--drafting motif--drafting-surface">
+  <div class="container section__inner">
+    <div class="section__head"><div class="section__title"><p class="eyebrow">Spacing &amp; layout</p><h2 class="display h2">1280 container, 104 section rhythm, 4-pixel scale.</h2></div>
+      <p class="section__lede">Sections stack with a 1 px hairline between them. Inside, a column of 48 px gaps; cards wrap at 300 px with 20 px gutters.</p></div>
+    <div class="rule">
+      <div><i style="width:4px;height:4px"></i><span>4</span></div><div><i style="width:8px;height:8px"></i><span>8</span></div><div><i style="width:12px;height:12px"></i><span>12</span></div><div><i style="width:16px;height:16px"></i><span>16</span></div><div><i style="width:20px;height:20px"></i><span>20</span></div><div><i style="width:24px;height:24px"></i><span>24</span></div><div><i style="width:32px;height:32px"></i><span>32</span></div><div><i style="width:40px;height:40px"></i><span>40</span></div><div><i style="width:48px;height:48px"></i><span>48</span></div><div><i style="width:56px;height:56px"></i><span>56</span></div><div><i style="width:104px;height:104px"></i><span>104 section</span></div>
+    </div>
+    <div class="two">
+      <div class="card"><div class="card__body"><p class="label">Container</p><p>max-width 1280 px · gutter 40 px (16 px under 640 px) · section padding 104 px (72 px under 640 px) · inner gap 48 px (36 px mobile).</p></div></div>
+      <div class="card"><div class="card__body"><p class="label">Radii &amp; borders</p><p>Controls 6 px · cards 12 px · chips 999 px. Hairlines 1 px: <code>line</code> between sections, <code>line-2</code> on cards, <code>line-3</code> on controls. Service items carry a 3 px ink rule on the left.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="motif" class="section motif--drafting">
+  <div class="container section__inner">
+    <div class="section__head"><div class="section__title"><p class="eyebrow">Motifs</p><h2 class="display h2">One wire in the hero, a drafting grid everywhere else.</h2></div>
+      <p class="section__lede">Every section below the hero sits on the same hairline grid: four columns by three rows of the section, 1 px lines at 7% ink.</p></div>
+    <div class="two">
+      <div class="demo"><div class="demo__bar">Drafting grid · .motif--drafting</div><div class="motif--drafting" style="height:220px"></div></div>
+      <div class="demo"><div class="demo__bar">Drafting grid on surface · .motif--drafting-surface</div><div class="motif--drafting motif--drafting-surface" style="height:220px"></div></div>
+      <div class="demo"><div class="demo__bar">Hero gradient · .hero</div><div class="hero" style="height:220px"></div></div>
+      <div class="demo"><div class="demo__bar">Wire mesh · hero only · stroke wire @ 55%</div><div class="hero" style="height:220px; position:relative; overflow:hidden"><svg viewBox="0 0 600 220" preserveAspectRatio="none" style="position:absolute; inset:0; width:100%; height:100%; opacity:.55" fill="none" stroke="#6FCDEB" stroke-width="1"><path d="M0 20 C150 10 300 40 600 20 M0 60 C150 40 300 90 600 60 M0 100 C150 80 300 140 600 100 M0 140 C150 120 300 180 600 140 M0 180 C150 160 300 210 600 180 M60 0 C50 80 70 160 60 220 M160 0 C140 80 180 160 160 220 M260 0 C230 80 290 160 260 220 M360 0 C340 80 380 160 360 220 M460 0 C450 80 470 160 460 220 M540 0 C530 80 550 160 540 220"/></svg></div></div>
+    </div>
+    <pre>.motif--drafting {
+  background-color: var(--ground);
+  background-image:
+    linear-gradient(to right, rgba(242,239,233,.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242,239,233,.07) 1px, transparent 1px);
+  background-size: 25% 100%, 100% 33.33%;
+}</pre>
+  </div>
+</section>
+
+<section id="components" class="section motif--drafting motif--drafting-surface">
+  <div class="container section__inner">
+    <div class="section__head"><div class="section__title"><p class="eyebrow">Components</p><h2 class="display h2">Buttons, cards, specs, steps.</h2></div>
+      <p class="section__lede">Everything is a bordered box on the grid. No shadows, no fills brighter than surface-2, hover states move one border or background step.</p></div>
+
+    <div class="demo"><div class="demo__bar">Buttons · .btn .btn--primary / .btn--ghost / .btn--sm · .link</div>
+      <div class="demo__body"><a class="btn btn--primary" href="#">3D demo <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn btn--ghost" href="#">View our work</a><a class="btn btn--primary btn--sm" href="#">Book a demo</a><a class="btn btn--ghost btn--sm" href="#">Contact</a><a class="link" href="#">Open the 3D View</a></div></div>
+
+    <div class="demo"><div class="demo__bar">Viewer controls · .tool · .chip · .grade</div>
+      <div class="demo__body"><button class="tool" data-active="1">Shaded</button><button class="tool">Wireframe</button><button class="tool">Points</button><span class="chip" data-active="1">All</span><span class="chip">Cable-stayed</span><span class="chip">Girder</span><span class="grade grade--c">Grade C</span><span class="grade grade--d">Grade D</span></div></div>
+
+    <div class="grid">
+      <article class="card"><div style="height:160px; background: linear-gradient(135deg, #0a0d1c, #161b33)"></div><div class="card__body"><h3 class="subhead" style="font-size:18px">Beechwood Road Bridge</h3><p class="mono muted" style="font-size:12px">Girder · 622 meshes · Crawford County</p></div></article>
+      <figure class="card card--ground figure"><div style="height:160px; background: linear-gradient(135deg, #10142a, #0a0d1c)"></div><figcaption><strong>By member, by segment.</strong> Pylon PY1 on its own: 32 parts, each its own object with an elevation range.</figcaption></figure>
+      <div class="card"><div class="card__body" style="gap:16px"><div class="service"><strong>3D Modeling &amp; Digital Twins</strong><span>Scan-to-BIM, as-built twins, web viewers</span></div>
+        <dl class="spec"><div><dt>Length</dt><dd>104.68 + 240 + 104.68 m</dd></div><div><dt>Source</dt><dd>DWG/DXF · site photos</dd></div><div><dt>Deliverable</dt><dd>GLB · IFC4 · measurements</dd></div><div><dt>Review</dt><dd>71 of 73 approved</dd></div></dl></div></div>
+    </div>
+
+    <ol class="steps">
+      <li class="step"><span class="mono">1.0 Collect</span><h3>Collect the source</h3><p>Drawings converted DWG to DXF, section and quantity tables, close-up photographs.</p><span class="mono">DWG · DXF · PDF · JPG · E57</span></li>
+      <li class="step"><span class="mono">2.0 Model</span><h3>Model parametrically</h3><p>Each pylon lofted from elevation-indexed section parameters in 0.8 m rings.</p><span class="mono">32 pylon parts · 37 deck segments</span></li>
+      <li class="step"><span class="mono">3.0 Review</span><h3>Review every segment</h3><p>A browser viewer lists all segments with elevation range and status.</p><span class="mono">71 of 73 approved</span></li>
+    </ol>
+
+    <div class="two"><div class="card"><div class="card__body"><p class="label">Input · .input</p><input class="input" placeholder="Work email"></div></div>
+      <div class="card"><div class="card__body"><p class="label">Section header · .section__head</p><p class="muted">Eyebrow in mono caps, a two-line Anton h2 at most 680 px wide, and a 400 px lede aligned to the baseline on the right. Every section starts this way.</p></div></div></div>
+  </div>
+</section>
+
+<section id="viewer" class="section motif--drafting">
+  <div class="container section__inner">
+    <div class="section__head"><div class="section__title"><p class="eyebrow">3D viewer</p><h2 class="display h2">Shaded by default, wireframe and points on request.</h2></div>
+      <p class="section__lede">Three.js conventions shared by the hero scene, the model viewer and the offline renders.</p></div>
+    <div class="viewer">
+      <div class="card"><div class="card__body"><i style="background:#d6dbe8"></i><b>Shaded</b><span class="muted" style="font-size:13px">MeshStandardMaterial #D6DBE8 (viewer #C9CFE0), roughness .85, flat shading. Ambient .8 + hemisphere 1.2 + key 1.8 + fill .6.</span></div></div>
+      <div class="card"><div class="card__body"><i style="background:#f2efe9"></i><b>Wireframe</b><span class="muted" style="font-size:13px">EdgesGeometry at 28–30°, ink lines at 60–90% opacity over a 5–7% face fill.</span></div></div>
+      <div class="card"><div class="card__body"><i class="ramp" style="height:10px"></i><b>Point cloud</b><span class="muted" style="font-size:13px">Area-weighted surface samples (240k in the hero), elevation ramp, additive blending, 2.2 px.</span></div></div>
+      <div class="card"><div class="card__body"><i style="background:linear-gradient(90deg,#2e3657,#1f2540)"></i><b>Ground grid</b><span class="muted" style="font-size:13px">GridHelper 36 divisions, #2E3657 / #1F2540, 55% opacity, a hair below the lowest point.</span></div></div>
+      <div class="card"><div class="card__body"><i style="background:#6fcdeb"></i><b>Scan &amp; segments</b><span class="muted" style="font-size:13px">Scan plane wire at 16% fill / 90% edge; segment tints cycle ink → wire → ink-2 → #8FB7C9.</span></div></div>
+      <div class="card"><div class="card__body"><i style="background:linear-gradient(90deg,#6fcdeb,#e0b341,#e05a4e)"></i><b>Damage markers</b><span class="muted" style="font-size:13px">Circle on the face + 1.5× ring, grade colour, mono label above; records panel on the right.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="rules" class="section motif--drafting motif--drafting-surface">
+  <div class="container section__inner">
+    <div class="section__head"><div class="section__title"><p class="eyebrow">Rules</p><h2 class="display h2">Do and don't.</h2></div></div>
+    <div class="dodont">
+      <div class="card"><div class="card__body"><b style="color:var(--ramp-0)">Do</b><ul><li>Keep every section on the drafting grid; alternate ground and surface.</li><li>Lead with numbers an engineer can check: spans, mesh counts, approvals.</li><li>Use Anton only for headlines and the wordmark, never for body.</li><li>Show models shaded first; wireframe and points are modes.</li><li>Describe projects by type and scale, e.g. "450 m cable-stayed bridge, Korea".</li></ul></div></div>
+      <div class="card"><div class="card__body"><b style="color:var(--grade-d)">Don't</b><ul><li>Don't add a teal or blue accent outside the hero wire, scan plane and segment tints.</li><li>Don't use shadows, gradients on cards, or fills brighter than surface-2.</li><li>Don't put the wire mesh behind sections below the hero.</li><li>Don't name client bridges or sites in copy, captions or screenshots.</li><li>Don't fake density: point clouds are real surface samples or nothing.</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="section motif--drafting" style="border-bottom:0"><div class="container" style="padding:40px var(--gutter); display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px"><span class="mono" style="font-size:12px; color:var(--dim)">QBTTEXAS LLC · design system v1.0</span><span class="mono" style="font-size:12px; color:var(--dim)">tokens/qbttexas.tokens.json · css/tokens.css · css/components.css</span></div></footer>
+</body>
+</html>
