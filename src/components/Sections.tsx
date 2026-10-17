@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Logo } from "./Nav";
 import { featuredModel, indianaModels } from "@/data/models";
+import PipelineStage, { type MethodSteps } from "./PipelineStage";
 import s from "./Sections.module.css";
 
 const APP_URL = "https://wonsan-webapp-en.vercel.app/";
@@ -179,16 +180,37 @@ export function Work() {
 }
 
 export function HowItWorks() {
-  const steps = [
-    ["Collect the source", "Drawings converted DWG to DXF, section and quantity tables, installation drawings, and close-up site photographs. UAV and LiDAR capture where drawings are missing.", "DWG · DXF · PDF · JPG · E57"],
-    ["Model parametrically", "Each pylon is lofted from elevation-indexed section parameters in 0.8 m rings; deck segments, cables and anchorages follow the same rule. A drawing revision becomes a parameter change, not a remodel.", "32 pylon parts · 37 deck segments · 72 cables"],
-    ["Review every segment", "A browser viewer lists all segments with elevation range and status. Wireframe, translucent approved parts and X/Y section clipping let the engineer check hollow sections against the drawings.", "71 of 73 approved"],
-    ["Measure and validate", "Every segment is measured automatically: bounding box, watertightness, volume and cross-section slices with outer bounds and voids, saved as JSON beside the model.", "bbox · volume · slices · watertight"],
-    ["Deliver as BIM and twin", "Semantic IFC4 export with pylons, girders, deck slab and cables, re-parsed and validated, plus GLB for the web. The inspection platform then ties damage records to the elements.", "IFC4 · GLB · inspection twin"],
+  const measure: [string, string, string] = ["Measure and validate", "Every segment is measured automatically: bounding box, watertightness, volume and cross-section slices with outer bounds and voids, saved as JSON beside the model.", "bbox · volume · slices · watertight"];
+  const deliver: [string, string, string] = ["Deliver as BIM and twin", "Semantic IFC4 export with pylons, girders, deck slab and cables, re-parsed and validated, plus GLB for the web. The inspection platform then ties damage records to the elements.", "IFC4 · GLB · inspection twin"];
+  const methods: MethodSteps[] = [
+    {
+      method: "scan",
+      label: "Method A",
+      title: "Capture the field",
+      steps: [
+        ["Collect the source", "UAV flights and LiDAR scans of the structure, with the drawings, section tables and close-up site photographs alongside. Where no drawings exist, the capture is the source.", "E57 · LAS · JPG · DWG"],
+        ["Model from the cloud", "The point cloud is meshed and aligned, then fitted to parametric elements: pylons lofted in 0.8 m rings, deck segments, cables and anchorages. The model follows the field, not the sheet.", "240k points · 32 pylon parts · 72 cables"],
+        ["Review every segment", "A browser viewer lists all segments with elevation range and status. Wireframe, translucent approved parts and section clipping let the engineer check hollow sections against the scan.", "71 of 73 approved"],
+        measure,
+        deliver,
+      ],
+    },
+    {
+      method: "drawing",
+      label: "Method B",
+      title: "AI agent, from 2D drawings",
+      steps: [
+        ["Read the drawings", "An AI agent parses the DWG/DXF sheets: plan, elevation, sections and the variable-dimension table, and turns them into elevation-indexed parameters. No scan needed to start.", "DWG → DXF · 4 sheets · 12 layers"],
+        ["Model from parameters", "The agent lofts each pylon ring by ring from the section table, mirrors the second pylon along the deck axis, and places deck segments and cables from the drawings. A revision is a parameter change.", "32 pylon parts · 37 deck segments · 72 cables"],
+        ["Verify with site photos", "Close-up photographs are matched to the model: cable anchorages, the pylon head, bearings, pile caps. Mismatches go back into the parameters until the twin agrees with the field.", "4 checkpoints · ±8 mm"],
+        measure,
+        deliver,
+      ],
+    },
   ];
   return (
-    <section id="how" className="section motif--drafting motif--drafting-surface">
-      <div className="container section__inner" style={{ gap: 56 }}>
+    <section id="how" className={`section motif--drafting motif--drafting-surface ${s.how}`}>
+      <div className={`container section__inner ${s.howInner}`} style={{ gap: 56 }}>
         <div className="section__head">
           <div className="section__title">
             <p className="eyebrow">How it works</p>
@@ -198,18 +220,9 @@ export function HowItWorks() {
               To 3D Digital Twin
             </h2>
           </div>
-          <p className="section__lede">The pipeline we ran on a 450 m cable-stayed bridge in Korea. Each step leaves a file you can open: a parameter table, a viewer, a measurement JSON, an IFC.</p>
+          <p className="section__lede">Two ways to the same twin, both run on a 450 m cable-stayed bridge in Korea: capture the field, or let an AI agent build it from the 2D drawings and check it against site photos. Each step leaves a file you can open.</p>
         </div>
-        <ol className={s.steps}>
-          {steps.map(([title, body, tag], i) => (
-            <li key={title} className={s.step}>
-              <span className="mono">{i + 1}.0 {["Collect", "Model", "Review", "Measure", "Deliver"][i]}</span>
-              <h3>{title}</h3>
-              <p>{body}</p>
-              <span className="mono">{tag}</span>
-            </li>
-          ))}
-        </ol>
+        <PipelineStage methods={methods} />
       </div>
     </section>
   );

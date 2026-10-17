@@ -249,6 +249,92 @@
   color: var(--dim);
 }
 
+/* how it works: the pipeline showreel runs behind the section; the cards light up on their beat */
+.how {
+  position: relative;
+}
+
+.pipelineCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.howInner {
+  position: relative;
+  z-index: 1;
+}
+
+.pipelineBand {
+  height: clamp(220px, 28vw, 420px);
+  margin: -8px 0;
+}
+
+.methodTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: -32px;
+}
+
+.methodTab {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 220px;
+  padding: 12px 16px;
+  border: 1px solid var(--line-3);
+  border-radius: 6px;
+  background: rgba(10, 13, 28, 0.9);
+  color: var(--muted);
+  text-align: left;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.methodTab strong {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+
+.methodTab[data-active="1"] {
+  border-color: var(--wire);
+  color: var(--wire);
+}
+
+.how .step {
+  background: rgba(10, 13, 28, 0.9);
+}
+
+.step {
+  position: relative;
+  border-top: 2px solid transparent;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.step[data-active="1"] {
+  border-top-color: var(--wire);
+  background: var(--surface);
+}
+
+.step[data-active="1"] > span:first-child {
+  color: var(--wire);
+}
+
+.step > span:first-child {
+  transition: color 0.3s ease;
+}
+
 /* software */
 .softwareMain {
   display: flex;
