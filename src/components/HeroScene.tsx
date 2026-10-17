@@ -35,12 +35,15 @@ const pointVertex = /* glsl */ `
   uniform float uReveal;
   uniform float uSize;
   uniform float uPixelRatio;
+  uniform float uGhost;
   varying vec3 vColor;
   varying float vAlpha;
   void main() {
-    vColor = color;
     float edge = smoothstep(uReveal, uReveal - 0.08, aNx);
-    vAlpha = edge * (0.75 + 0.25 * aSeed);
+    // Ahead of the scan plane the point stays as a faint slate ghost, so the whole bridge
+    // is always legible and the sweep reads as colour being painted onto it.
+    vColor = mix(vec3(0.42, 0.47, 0.62), color, edge);
+    vAlpha = mix(uGhost, 1.0, edge) * (0.75 + 0.25 * aSeed);
     vec4 mv = modelViewMatrix * vec4(position, 1.0);
     float flicker = 0.85 + 0.15 * sin(aSeed * 40.0);
     gl_PointSize = uSize * uPixelRatio * flicker * (160.0 / -mv.z);
@@ -114,6 +117,7 @@ export default function HeroScene({ onPhase }: { onPhase?: (p: HeroPhase) => voi
       uReveal: { value: -1.2 },
       uSize: { value: 2.2 },
       uOpacity: { value: 1 },
+      uGhost: { value: 0.18 },
       uPixelRatio: { value: renderer.getPixelRatio() },
     };
     const lineMat = new THREE.LineBasicMaterial({ color: 0xf2efe9, transparent: true, opacity: 0 });
@@ -199,7 +203,19 @@ export default function HeroScene({ onPhase }: { onPhase?: (p: HeroPhase) => voi
         }
         return area;
       });
-      const totalArea = areas.reduce((s, v) => s + v, 0) || 1;
+      // Point budget per mesh, proportional to surface area plus a little virtual thickness along the
+      // longest dimension so thin elements (cables, railings) still read as lines of points. The old
+      // per-mesh floor of 0.4% ran the whole 240k budget out on the first 250 of ~1450 meshes, which is
+      // why the deck and cables never appeared in the cloud.
+      const tmpBox = new THREE.Box3();
+      const tmpSize = new THREE.Vector3();
+      const weights = meshes.map((m, mi) => {
+        if (areas[mi] <= 0) return 0;
+        tmpBox.setFromBufferAttribute(m.geometry.getAttribute("position") as THREE.BufferAttribute);
+        tmpBox.getSize(tmpSize);
+        return areas[mi] + 1.0 * Math.max(tmpSize.x, tmpSize.y, tmpSize.z);
+      });
+      const totalWeight = weights.reduce((s, v) => s + v, 0) || 1;
       const positions = new Float32Array(TOTAL_POINTS * 3);
       const colors = new Float32Array(TOTAL_POINTS * 3);
       const seeds = new Float32Array(TOTAL_POINTS);
@@ -208,10 +224,8 @@ export default function HeroScene({ onPhase }: { onPhase?: (p: HeroPhase) => voi
       const col = new THREE.Color();
       let written = 0;
       meshes.forEach((m, mi) => {
-        if (areas[mi] <= 0) return;
-        // Give thin elements (cables, railings) a floor so they still read as lines of points.
-        const share = Math.max(areas[mi] / totalArea, 0.004);
-        const n = Math.min(TOTAL_POINTS - written, Math.floor(TOTAL_POINTS * share));
+        if (weights[mi] <= 0) return;
+        const n = Math.min(TOTAL_POINTS - written, Math.max(4, Math.round((TOTAL_POINTS * weights[mi]) / totalWeight)));
         if (n <= 0) return;
         const sampler = new MeshSurfaceSampler(m).build();
         for (let i = 0; i < n; i++) {
@@ -221,7 +235,8 @@ export default function HeroScene({ onPhase }: { onPhase?: (p: HeroPhase) => voi
           positions[o] = p.x;
           positions[o + 1] = p.y;
           positions[o + 2] = p.z;
-          const t = (p.y - yMin) / Math.max(1e-6, yMax - yMin);
+          // Clamp before pow: a sample a hair below the box floor gave NaN, which rendered as black specks.
+          const t = Math.min(1, Math.max(0, (p.y - yMin) / Math.max(1e-6, yMax - yMin)));
           rampColor(Math.pow(t, 0.8), col);
           colors[o] = col.r;
           colors[o + 1] = col.g;
