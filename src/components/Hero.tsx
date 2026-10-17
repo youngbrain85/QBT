@@ -32,7 +32,7 @@ export default function Hero() {
       <div className={`container ${styles.inner}`}>
         <div className={styles.copy}>
           <p className="eyebrow">Innovate · Build · Transform</p>
-          <h1 className={`display ${styles.title}`}>Physical AI. Digital 3D World.</h1>
+          <h1 className={`display ${styles.title}`}>Build A New Digital 3D World.</h1>
           <p className={styles.lede}>AI that turns field capture into measurable digital twins of bridges, buildings and plants.</p>
           <div className={styles.ctas}>
             <Link href="/models" className="btn btn--primary">
@@ -46,19 +46,14 @@ export default function Hero() {
             </Link>
           </div>
           <ul className={`mono ${styles.tags}`}>
-            <li>UAV · LiDAR · Photogrammetry</li>
+            <li>AI</li>
+            <li>Digital Twin</li>
             <li>Scan-to-BIM</li>
-            <li>Digital twins</li>
           </ul>
         </div>
 
         <div className={styles.stage} aria-hidden="true">
           <HeroScene onPhase={setPhase} />
-          <div className={`mono ${styles.hud}`}>
-            <span>450 m cable-stayed bridge · Korea</span>
-            <span>240k surface points · LOD 400</span>
-            <span>IFC 4.3 · ±8 mm</span>
-          </div>
           {PINS.map((p, i) => (
             <div
               key={p.text}

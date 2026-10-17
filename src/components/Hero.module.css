@@ -137,21 +137,6 @@
   color: var(--muted);
 }
 
-.hud {
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: flex-end;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  pointer-events: none;
-}
-
 .pin {
   position: absolute;
   display: flex;
