@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import { CTA, Capabilities, Footer, HowItWorks, Industries, LogoStrip, Proof, ServicesBar, Software, Work } from "@/components/Sections";
+import { CTA, Capabilities, Footer, HowItWorks, Industries, Proof, ServicesBar, Software, Work } from "@/components/Sections";
 
 export default function Home() {
   return (
@@ -9,7 +9,6 @@ export default function Home() {
       <main className="page">
         <Hero />
         <ServicesBar />
-        <LogoStrip />
         <Work />
         <HowItWorks />
         <Software />

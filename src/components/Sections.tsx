@@ -38,23 +38,6 @@ export function ServicesBar() {
   );
 }
 
-export function LogoStrip() {
-  return (
-    <section aria-label="Customers" className={s.logos}>
-      <div className={`container ${s.logosInner}`}>
-        <p className="eyebrow" style={{ fontSize: 12, flex: "0 0 auto" }}>
-          Trusted by teams across Texas
-        </p>
-        <ul className={s.logosList}>
-          {Array.from({ length: 5 }).map((_, i) => (
-            <li key={i}>[CLIENT LOGO]</li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
 export function Work() {
   const f = featuredModel;
   return (
@@ -63,11 +46,8 @@ export function Work() {
         <div className="section__head">
           <div className="section__title">
             <p className="eyebrow">Work</p>
-            <h2 className="display">Bridges, modeled from drawings and the field.</h2>
+            <h2 className="display">3D Digital Twin</h2>
           </div>
-          <p className="section__lede">
-            Ten bridges modeled to date: a 450 m cable-stayed bridge in Korea and nine highway bridges in Indiana. Every model opens in the browser.
-          </p>
         </div>
 
         <article className={`card ${s.featured}`}>
@@ -81,44 +61,20 @@ export function Work() {
               South Korea · sea crossing
             </p>
             <h3 className="display">{f.name}</h3>
-            <p>
-              Two-pylon steel–concrete composite cable-stayed bridge, 450 m long with 105 m diamond pylons. {f.summary}
-            </p>
-            <p>
-              The model is in service in the{" "}
-              <a href={APP_URL} className="link" target="_blank" rel="noreferrer">
-                JJ InfraData inspection web app
-              </a>
-              , where inspectors log damage on it and the structure is graded from those records.
-            </p>
             <dl className="spec">
-              <div>
-                <dt>Length</dt>
-                <dd>104.68 + 240 + 104.68 m</dd>
-              </div>
               <div>
                 <dt>Source</dt>
                 <dd>DWG/DXF · site photos</dd>
               </div>
               <div>
                 <dt>Deliverable</dt>
-                <dd>GLB · IFC4 · measurements</dd>
-              </div>
-              <div>
-                <dt>Review</dt>
-                <dd>71 of 73 segments approved</dd>
+                <dd>GLB · IFC4</dd>
               </div>
             </dl>
             <div className={s.featuredCtas}>
               <Link href={`/models/${f.slug}`} className="btn btn--primary">
                 Open in the 3D viewer <Arrow dark />
               </Link>
-              <a href={APP_MODEL_URL} className="btn btn--ghost" target="_blank" rel="noreferrer">
-                Inspection app · 3D View
-              </a>
-              <a href={SEGMENT_VIEWER_URL} className="btn btn--ghost" target="_blank" rel="noreferrer">
-                Segment review viewer
-              </a>
             </div>
           </div>
         </article>
