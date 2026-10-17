@@ -1,0 +1,102 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "color": {
+    "ground":   { "$type": "color", "$value": "#0a0d1c", "$description": "Page background (navy)." },
+    "surface":  { "$type": "color", "$value": "#10142a", "$description": "Raised section and card background." },
+    "surface-2":{ "$type": "color", "$value": "#161b33", "$description": "Active/selected surface." },
+    "line":     { "$type": "color", "$value": "#1f2540", "$description": "Section dividers." },
+    "line-2":   { "$type": "color", "$value": "#242b47", "$description": "Card borders." },
+    "line-3":   { "$type": "color", "$value": "#2e3657", "$description": "Button and input borders." },
+    "ink":      { "$type": "color", "$value": "#f2efe9", "$description": "Primary text (warm off-white)." },
+    "ink-2":    { "$type": "color", "$value": "#b8b3ab", "$description": "Secondary text." },
+    "muted":    { "$type": "color", "$value": "#9a9690", "$description": "Body copy on dark, captions." },
+    "dim":      { "$type": "color", "$value": "#85817a", "$description": "Labels, mono notes." },
+    "wire":     { "$type": "color", "$value": "#6fcdeb", "$description": "Cyan wire mesh, scan plane, segment tint. Hero only." },
+    "hero-glow":{ "$type": "color", "$value": "#141c40", "$description": "Centre of the hero radial gradient." },
+    "grade": {
+      "b": { "$type": "color", "$value": "#6fcdeb" },
+      "c": { "$type": "color", "$value": "#e0b341" },
+      "d": { "$type": "color", "$value": "#e05a4e" }
+    },
+    "elevation-ramp": {
+      "$description": "LiDAR-style point cloud ramp, low to high elevation.",
+      "0": { "$type": "color", "$value": "#38d454" },
+      "1": { "$type": "color", "$value": "#b8e64d" },
+      "2": { "$type": "color", "$value": "#fad647" },
+      "3": { "$type": "color", "$value": "#ff8c1f" },
+      "4": { "$type": "color", "$value": "#ff332e" }
+    }
+  },
+  "font": {
+    "display": { "$type": "fontFamily", "$value": ["Anton", "Impact", "sans-serif"], "$description": "Headlines and the wordmark. Weight 400 only, letter-spacing 0.01em, line-height 1.05." },
+    "body":    { "$type": "fontFamily", "$value": ["Montserrat", "system-ui", "sans-serif"], "$description": "Body, UI, subheads. Weights 400/500/600/700." },
+    "mono":    { "$type": "fontFamily", "$value": ["IBM Plex Mono", "ui-monospace", "monospace"], "$description": "Eyebrows, specs, HUD readouts. Weights 400/500." }
+  },
+  "typography": {
+    "h1":      { "$type": "typography", "$value": { "fontFamily": "{font.display}", "fontSize": "clamp(52px, 6.4vw, 84px)", "lineHeight": 0.98, "letterSpacing": "0.005em" } },
+    "h2":      { "$type": "typography", "$value": { "fontFamily": "{font.display}", "fontSize": "clamp(32px, 4vw, 44px)", "lineHeight": 1.1, "letterSpacing": "0.01em" } },
+    "h3":      { "$type": "typography", "$value": { "fontFamily": "{font.display}", "fontSize": "30px", "lineHeight": 1.1 } },
+    "subhead": { "$type": "typography", "$value": { "fontFamily": "{font.body}", "fontWeight": 600, "fontSize": "20px", "lineHeight": 1.25 } },
+    "lede":    { "$type": "typography", "$value": { "fontFamily": "{font.body}", "fontSize": "19px", "lineHeight": 1.5 } },
+    "body":    { "$type": "typography", "$value": { "fontFamily": "{font.body}", "fontSize": "16px", "lineHeight": 1.5 } },
+    "small":   { "$type": "typography", "$value": { "fontFamily": "{font.body}", "fontSize": "14px", "lineHeight": 1.5 } },
+    "eyebrow": { "$type": "typography", "$value": { "fontFamily": "{font.mono}", "fontSize": "13px", "letterSpacing": "0.14em", "textTransform": "uppercase" } },
+    "label":   { "$type": "typography", "$value": { "fontFamily": "{font.mono}", "fontSize": "11px", "letterSpacing": "0.1em", "textTransform": "uppercase" } },
+    "mono":    { "$type": "typography", "$value": { "fontFamily": "{font.mono}", "fontSize": "12px" } },
+    "wordmark":{ "$type": "typography", "$value": { "fontFamily": "{font.display}", "fontSize": "20px", "letterSpacing": "0.06em", "textTransform": "uppercase" } }
+  },
+  "space": {
+    "1": { "$type": "dimension", "$value": "4px" },
+    "2": { "$type": "dimension", "$value": "8px" },
+    "3": { "$type": "dimension", "$value": "12px" },
+    "4": { "$type": "dimension", "$value": "16px" },
+    "5": { "$type": "dimension", "$value": "20px" },
+    "6": { "$type": "dimension", "$value": "24px" },
+    "8": { "$type": "dimension", "$value": "32px" },
+    "10": { "$type": "dimension", "$value": "40px" },
+    "12": { "$type": "dimension", "$value": "48px" },
+    "14": { "$type": "dimension", "$value": "56px" },
+    "section-y": { "$type": "dimension", "$value": "104px", "$description": "Section padding top/bottom (72px below 640px)." },
+    "section-y-mobile": { "$type": "dimension", "$value": "72px" }
+  },
+  "layout": {
+    "container-max": { "$type": "dimension", "$value": "1280px" },
+    "gutter": { "$type": "dimension", "$value": "40px", "$description": "16px below 640px." },
+    "gutter-mobile": { "$type": "dimension", "$value": "16px" },
+    "card-min": { "$type": "dimension", "$value": "300px", "$description": "flex: 1 1 300px grid items." }
+  },
+  "radius": {
+    "control": { "$type": "dimension", "$value": "6px" },
+    "card": { "$type": "dimension", "$value": "12px" },
+    "pill": { "$type": "dimension", "$value": "999px" }
+  },
+  "border": {
+    "hairline": { "$type": "border", "$value": { "width": "1px", "style": "solid", "color": "{color.line}" } },
+    "card":     { "$type": "border", "$value": { "width": "1px", "style": "solid", "color": "{color.line-2}" } },
+    "control":  { "$type": "border", "$value": { "width": "1px", "style": "solid", "color": "{color.line-3}" } },
+    "accent":   { "$type": "border", "$value": { "width": "3px", "style": "solid", "color": "{color.ink}" }, "$description": "Left rule on service items." }
+  },
+  "size": {
+    "button":    { "$type": "dimension", "$value": "52px" },
+    "button-sm": { "$type": "dimension", "$value": "44px" },
+    "tool":      { "$type": "dimension", "$value": "36px" }
+  },
+  "motion": {
+    "control":  { "$type": "duration", "$value": "150ms", "$description": "Hover transitions, ease." },
+    "hero-loop":{ "$type": "duration", "$value": "20s", "$description": "Hero point cloud → BIM → inspection loop." },
+    "breathe":  { "$type": "duration", "$value": "12s", "$description": "Wire mesh scale 1 → 1.03, alternate." },
+    "orbit":    { "$type": "number", "$value": 0.55, "$description": "OrbitControls autoRotateSpeed." }
+  },
+  "motif": {
+    "drafting-grid": {
+      "$description": "Hairline grid behind every section below the hero: 4 columns × 3 rows of the section, 1px lines at 7% ink.",
+      "line":   { "$type": "color", "$value": "rgba(242, 239, 233, 0.07)" },
+      "columns":{ "$type": "number", "$value": 4 },
+      "rows":   { "$type": "number", "$value": 3 }
+    },
+    "wire-mesh": {
+      "$description": "Hero only: warped cyan grid with three gravity wells, stroke {color.wire} at 55% opacity.",
+      "opacity": { "$type": "number", "$value": 0.55 }
+    }
+  }
+}

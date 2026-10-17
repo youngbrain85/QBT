@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Logo } from "./Nav";
 import { featuredModel, indianaModels } from "@/data/models";
+import PipelineStage, { type MethodSteps } from "./PipelineStage";
 import s from "./Sections.module.css";
 
 const APP_URL = "https://wonsan-webapp-en.vercel.app/";
@@ -71,13 +72,13 @@ export function Work() {
 
         <article className={`card ${s.featured}`}>
           <Link href={`/models/${f.slug}`} className={s.featuredImage}>
-            <Image src={f.render} alt="Wireframe render of the Wonsan–Anmyeon Bridge: two diamond pylons on pile foundations, deck and 72 stay cables" fill sizes="(max-width: 900px) 100vw, 66vw" priority />
+            <Image src={f.render} alt="Wireframe render of the cable-stayed bridge: two diamond pylons on pile foundations, deck and 72 stay cables" fill sizes="(max-width: 900px) 100vw, 66vw" priority />
             <span className={`mono ${s.cornerTag}`}>Featured · Cable-stayed · LOD 400</span>
             <span className={`mono ${s.cornerStat}`}>1,452 meshes · 73 segments</span>
           </Link>
           <div className={s.featuredBody}>
             <p className="eyebrow" style={{ fontSize: 12 }}>
-              Taean, Korea
+              South Korea · sea crossing
             </p>
             <h3 className="display">{f.name}</h3>
             <p>
@@ -125,7 +126,7 @@ export function Work() {
         <div className="grid">
           <figure className={`card card--ground ${s.figure}`}>
             <a href={APP_MODEL_URL} target="_blank" rel="noreferrer">
-              <Image src="/renders/app-en-3dview.png" alt="JJ InfraData inspection web app, 3D View page: member tree with pylons, foundations, deck and girders, cables, bearings and furniture beside the Wonsan–Anmyeon Bridge model" width={1600} height={900} style={{ objectPosition: "0 0" }} />
+              <Image src="/renders/app-en-3dview.png" alt="JJ InfraData inspection web app, 3D View page: member tree with pylons, foundations, deck and girders, cables, bearings and furniture beside the cable-stayed bridge model" width={1600} height={900} style={{ objectPosition: "0 0" }} />
             </a>
             <figcaption>
               <strong>Live in the inspection web app.</strong> The same 1,452-mesh model drives the JJ InfraData 3D View: a member tree that isolates any of the 73 segments, a condition-grade heatmap and damage markers.{" "}
@@ -135,13 +136,13 @@ export function Work() {
             </figcaption>
           </figure>
           <figure className={`card card--ground ${s.figure}`}>
-            <Image src="/renders/wonsan-pylon-segments.png" alt="Pylon PY1 alone, its 32 parts tinted alternately so each segment reads as its own object" width={1200} height={900} style={{ objectPosition: "50% 40%" }} />
+            <Image src="/renders/pylon-segments.png" alt="Pylon PY1 alone, its 32 parts tinted alternately so each segment reads as its own object" width={1200} height={900} style={{ objectPosition: "50% 40%" }} />
             <figcaption>
               <strong>By member, by segment.</strong> Pylon PY1 on its own: 32 parts, each its own object with an elevation range, so any member or any segment can be isolated, measured and visualized.
             </figcaption>
           </figure>
           <figure className={`card card--ground ${s.figure}`}>
-            <Image src="/renders/wonsan-pylon-damage.png" alt="Damage markers for a crack, spalling, leakage and rebar exposure drawn on the 3D faces of pylon PY1, with an inspection record panel listing each one with its size and grade" width={1200} height={900} style={{ objectPosition: "50% 45%" }} />
+            <Image src="/renders/pylon-damage.png" alt="Damage markers for a crack, spalling, leakage and rebar exposure drawn on the 3D faces of pylon PY1, with an inspection record panel listing each one with its size and grade" width={1200} height={900} style={{ objectPosition: "50% 45%" }} />
             <figcaption>
               <strong>Damage on the surface, records behind it.</strong> Inspectors mark cracks, spalls and leaks directly on the 3D faces; every marker opens its inspection record (type, size, grade, photo, date) and feeds the map sheets.
             </figcaption>
@@ -168,7 +169,7 @@ export function Work() {
           ))}
         </div>
         <div className={s.footLine}>
-          <p className="mono">10 bridges · Korea and Indiana · every model delivered as GLB, the Wonsan–Anmyeon twin also as IFC4</p>
+          <p className="mono">10 bridges · Korea and Indiana · every model delivered as GLB, the cable-stayed twin also as IFC4</p>
           <Link href="/models" className="link">
             Open the model library →
           </Link>
@@ -179,16 +180,37 @@ export function Work() {
 }
 
 export function HowItWorks() {
-  const steps = [
-    ["Collect the source", "Drawings converted DWG to DXF, section and quantity tables, installation drawings, and close-up site photographs. UAV and LiDAR capture where drawings are missing.", "DWG · DXF · PDF · JPG · E57"],
-    ["Model parametrically", "Each pylon is lofted from elevation-indexed section parameters in 0.8 m rings; deck segments, cables and anchorages follow the same rule. A drawing revision becomes a parameter change, not a remodel.", "32 pylon parts · 37 deck segments · 72 cables"],
-    ["Review every segment", "A browser viewer lists all segments with elevation range and status. Wireframe, translucent approved parts and X/Y section clipping let the engineer check hollow sections against the drawings.", "71 of 73 approved"],
-    ["Measure and validate", "Every segment is measured automatically: bounding box, watertightness, volume and cross-section slices with outer bounds and voids, saved as JSON beside the model.", "bbox · volume · slices · watertight"],
-    ["Deliver as BIM and twin", "Semantic IFC4 export with pylons, girders, deck slab and cables, re-parsed and validated, plus GLB for the web. The inspection platform then ties damage records to the elements.", "IFC4 · GLB · inspection twin"],
+  const measure: [string, string, string] = ["Measure and validate", "Every segment is measured automatically: bounding box, watertightness, volume and cross-section slices with outer bounds and voids, saved as JSON beside the model.", "bbox · volume · slices · watertight"];
+  const deliver: [string, string, string] = ["Deliver as BIM and twin", "Semantic IFC4 export with pylons, girders, deck slab and cables, re-parsed and validated, plus GLB for the web. The inspection platform then ties damage records to the elements.", "IFC4 · GLB · inspection twin"];
+  const methods: MethodSteps[] = [
+    {
+      method: "scan",
+      label: "Method A",
+      title: "Capture the field",
+      steps: [
+        ["Collect the source", "UAV flights and LiDAR scans of the structure, with the drawings, section tables and close-up site photographs alongside. Where no drawings exist, the capture is the source.", "E57 · LAS · JPG · DWG"],
+        ["Model from the cloud", "The point cloud is meshed and aligned, then fitted to parametric elements: pylons lofted in 0.8 m rings, deck segments, cables and anchorages. The model follows the field, not the sheet.", "240k points · 32 pylon parts · 72 cables"],
+        ["Review every segment", "A browser viewer lists all segments with elevation range and status. Wireframe, translucent approved parts and section clipping let the engineer check hollow sections against the scan.", "71 of 73 approved"],
+        measure,
+        deliver,
+      ],
+    },
+    {
+      method: "drawing",
+      label: "Method B",
+      title: "AI agent, from 2D drawings",
+      steps: [
+        ["Read the drawings", "An AI agent parses the DWG/DXF sheets: plan, elevation, sections and the variable-dimension table, and turns them into elevation-indexed parameters. No scan needed to start.", "DWG → DXF · 4 sheets · 12 layers"],
+        ["Model from parameters", "The agent lofts each pylon ring by ring from the section table, mirrors the second pylon along the deck axis, and places deck segments and cables from the drawings. A revision is a parameter change.", "32 pylon parts · 37 deck segments · 72 cables"],
+        ["Verify with site photos", "Close-up photographs are matched to the model: cable anchorages, the pylon head, bearings, pile caps. Mismatches go back into the parameters until the twin agrees with the field.", "4 checkpoints · ±8 mm"],
+        measure,
+        deliver,
+      ],
+    },
   ];
   return (
-    <section id="how" className="section motif--drafting motif--drafting-surface">
-      <div className="container section__inner" style={{ gap: 56 }}>
+    <section id="how" className={`section motif--drafting motif--drafting-surface ${s.how}`}>
+      <div className={`container section__inner ${s.howInner}`} style={{ gap: 56 }}>
         <div className="section__head">
           <div className="section__title">
             <p className="eyebrow">How it works</p>
@@ -198,18 +220,9 @@ export function HowItWorks() {
               To 3D Digital Twin
             </h2>
           </div>
-          <p className="section__lede">The pipeline we ran on the Wonsan–Anmyeon Bridge. Each step leaves a file you can open: a parameter table, a viewer, a measurement JSON, an IFC.</p>
+          <p className="section__lede">Two ways to the same twin, both run on a 450 m cable-stayed bridge in Korea: capture the field, or let an AI agent build it from the 2D drawings and check it against site photos. Each step leaves a file you can open.</p>
         </div>
-        <ol className={s.steps}>
-          {steps.map(([title, body, tag], i) => (
-            <li key={title} className={s.step}>
-              <span className="mono">{i + 1}.0 {["Collect", "Model", "Review", "Measure", "Deliver"][i]}</span>
-              <h3>{title}</h3>
-              <p>{body}</p>
-              <span className="mono">{tag}</span>
-            </li>
-          ))}
-        </ol>
+        <PipelineStage methods={methods} />
       </div>
     </section>
   );
@@ -224,7 +237,7 @@ export function Software() {
             <p className="eyebrow">Software</p>
             <h2 className="display">The twin is a working tool, not a render.</h2>
           </div>
-          <p className="section__lede">Bridge visual inspection platform built on the Wonsan–Anmyeon twin. Inspectors log damage on the 3D model; the system scores the structure.</p>
+          <p className="section__lede">Bridge visual inspection platform built on the cable-stayed bridge twin. Inspectors log damage on the 3D model; the system scores the structure.</p>
         </div>
         <article className={`card card--ground ${s.softwareMain}`}>
           <a href={APP_MODEL_URL} target="_blank" rel="noreferrer">
@@ -265,13 +278,12 @@ export function Software() {
           </article>
         </div>
         <p className={`mono ${s.note}`}>
-          English build:{" "}
           <a href={APP_URL} className="link" target="_blank" rel="noreferrer">
-            wonsan-webapp-en.vercel.app
+            Open the inspection app
           </a>{" "}
-          · 3D View at{" "}
+          · English build ·{" "}
           <a href={APP_MODEL_URL} className="link" target="_blank" rel="noreferrer">
-            /model
+            3D View
           </a>
         </p>
       </div>

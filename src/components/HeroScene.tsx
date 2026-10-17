@@ -92,6 +92,15 @@ export default function HeroScene({ onPhase }: { onPhase?: (p: HeroPhase) => voi
 
     const group = new THREE.Group();
     scene.add(group);
+    // Lights for the shaded BIM stage; the cloud and edges are unlit.
+    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+    scene.add(new THREE.HemisphereLight(0xdfe6ff, 0x1a1e33, 1.1));
+    const key = new THREE.DirectionalLight(0xffffff, 1.6);
+    key.position.set(1, 2, 1.2);
+    scene.add(key);
+    const fillLight = new THREE.DirectionalLight(0x9fb5ff, 0.5);
+    fillLight.position.set(-1.5, 0.6, -1);
+    scene.add(fillLight);
 
     const loader = new GLTFLoader();
     loader.setMeshoptDecoder(MeshoptDecoder);
@@ -115,6 +124,19 @@ export default function HeroScene({ onPhase }: { onPhase?: (p: HeroPhase) => voi
       side: THREE.DoubleSide,
       depthWrite: false,
     });
+    // Shaded faces that fill in once the BIM elements are built, so the bridge reads as a solid
+    // light object against the navy backdrop instead of a cloud the same colour as the page.
+    const fillMat = new THREE.MeshStandardMaterial({
+      color: 0xd6dbe8,
+      roughness: 0.85,
+      metalness: 0.05,
+      flatShading: true,
+      transparent: true,
+      opacity: 0,
+      polygonOffset: true,
+      polygonOffsetFactor: 1,
+      polygonOffsetUnits: 1,
+    });
     let scanPlane: THREE.Mesh | null = null;
     let radius = 1;
     let xHalf = 1;
@@ -133,7 +155,7 @@ export default function HeroScene({ onPhase }: { onPhase?: (p: HeroPhase) => voi
     async function build() {
       const meshes: THREE.Mesh[] = [];
       for (const f of FILES) {
-        const gltf = await loader.loadAsync(`/models/wonsan/${f}`);
+        const gltf = await loader.loadAsync(`/models/cable-stayed/${f}`);
         gltf.scene.updateMatrixWorld(true);
         gltf.scene.traverse((n) => {
           if ((n as THREE.Mesh).isMesh) meshes.push(n as THREE.Mesh);
@@ -237,8 +259,13 @@ export default function HeroScene({ onPhase }: { onPhase?: (p: HeroPhase) => voi
         edgeGroup.add(ls);
       });
       scene.add(edgeGroup);
-      // Hide the source meshes; the cloud and edges are the picture.
-      meshes.forEach((m) => (m.visible = false));
+      // The source meshes become the shaded stage; hidden until the BIM phase.
+      meshes.forEach((m) => {
+        const g = m.geometry as THREE.BufferGeometry;
+        if (!g.getAttribute("normal")) g.computeVertexNormals();
+        m.material = fillMat;
+      });
+      group.visible = false;
 
       // Scan plane sweeping along the deck.
       const along = size.z >= size.x ? "z" : "x";
@@ -262,7 +289,7 @@ export default function HeroScene({ onPhase }: { onPhase?: (p: HeroPhase) => voi
       scene.add(grid);
 
       // Camera: three-quarter view, slightly above deck level.
-      const dist = (radius / Math.sin((camera.fov * Math.PI) / 360)) * 0.66;
+      const dist = (radius / Math.sin((camera.fov * Math.PI) / 360)) * 0.58;
       camera.position.set(dist * 0.78, dist * 0.3, dist * 0.55);
       camera.near = dist / 100;
       camera.far = dist * 20;
@@ -276,37 +303,52 @@ export default function HeroScene({ onPhase }: { onPhase?: (p: HeroPhase) => voi
         frame = requestAnimationFrame(tick);
         const t = reduceMotion ? 0.7 : (((performance.now() - start) / 1000) % LOOP_SECONDS) / LOOP_SECONDS;
 
-        // 0–0.36 scan reveal · 0.36–0.5 edges build, cloud dims · 0.56–0.92 pins · 0.92–1 fade
+        // 0–0.36 scan reveal · 0.36–0.5 edges build · 0.5–0.62 shaded faces fill in · 0.62–0.92 pins · 0.92–1 fade
         let reveal: number;
         let edgeOp: number;
         let cloudOp: number;
         let scanOp: number;
+        let fillOp: number;
         if (t < 0.36) {
           reveal = -1.15 + (t / 0.36) * 2.4;
           edgeOp = 0;
           cloudOp = 1;
+          fillOp = 0;
           scanOp = t < 0.02 ? t / 0.02 : t > 0.34 ? (0.36 - t) / 0.02 : 1;
         } else if (t < 0.5) {
           const k = (t - 0.36) / 0.14;
           reveal = 1.3;
-          edgeOp = k * 0.75;
-          cloudOp = 1 - k * 0.6;
+          edgeOp = k * 0.85;
+          cloudOp = 1 - k * 0.35;
+          fillOp = 0;
+          scanOp = 0;
+        } else if (t < 0.62) {
+          const k = (t - 0.5) / 0.12;
+          reveal = 1.3;
+          edgeOp = 0.85 - k * 0.3;
+          cloudOp = 0.65 - k * 0.45;
+          fillOp = k;
           scanOp = 0;
         } else if (t < 0.92) {
           reveal = 1.3;
-          edgeOp = 0.75;
-          cloudOp = 0.4;
+          edgeOp = 0.55;
+          cloudOp = 0.2;
+          fillOp = 1;
           scanOp = 0;
         } else {
           const k = (t - 0.92) / 0.08;
           reveal = 1.3;
-          edgeOp = 0.75 * (1 - k);
-          cloudOp = 0.4 * (1 - k);
+          edgeOp = 0.55 * (1 - k);
+          cloudOp = 0.2 * (1 - k);
+          fillOp = 1 - k;
           scanOp = 0;
         }
         pointsUniforms.uReveal.value = reveal;
         pointsUniforms.uOpacity.value = cloudOp;
         lineMat.opacity = edgeOp;
+        fillMat.opacity = fillOp;
+        fillMat.transparent = fillOp < 0.999;
+        group.visible = fillOp > 0.01;
         scanMat.opacity = scanOp * 0.16;
         (scanEdge.material as THREE.LineBasicMaterial).opacity = scanOp * 0.9;
         if (scanPlane) {

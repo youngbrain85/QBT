@@ -85,6 +85,21 @@
   height: 560px;
 }
 
+/* a dark pool behind the model so the wire backdrop recedes and the bridge reads against it */
+.stage::before {
+  content: "";
+  position: absolute;
+  inset: -12% -8%;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 58% 56% at 54% 52%, rgba(6, 8, 18, 0.97) 0%, rgba(6, 8, 18, 0.7) 55%, rgba(6, 8, 18, 0) 100%);
+}
+
+.stage > * {
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 640px) {
   .stage {
     height: 420px;
