@@ -3,10 +3,8 @@ import styles from "./Nav.module.css";
 
 const links = [
   { href: "/#work", label: "Work" },
-  { href: "/models", label: "3D viewer" },
   { href: "/#how", label: "How it works" },
   { href: "/#software", label: "Software" },
-  { href: "/#industries", label: "Industries" },
   { href: "/#about", label: "About" },
 ];
 
@@ -39,8 +37,8 @@ export default function Nav({ compact = false }: { compact?: boolean }) {
           <Link href="/#contact" className="btn btn--ghost btn--sm">
             Contact
           </Link>
-          <Link href="/#contact" className="btn btn--primary btn--sm">
-            Book a demo
+          <Link href="/models" className="btn btn--primary btn--sm">
+            3D Demo
           </Link>
         </div>
       </div>
