@@ -244,83 +244,6 @@ export function Software() {
 }
 
 
-export function Industries() {
-  const rows: [string, string][] = [
-    ["Construction & AEC", "Progress tracking, as-built verification, clash checks against design."],
-    ["Real estate & facilities", "Accurate floor areas, virtual walkthroughs, maintenance records on the model."],
-    ["Energy & industrial", "Plant and pipeline twins for turnarounds, safety planning and brownfield retrofits."],
-    ["Infrastructure & public works", "Roads, bridges and utilities documented for inspection and long-term asset management."],
-  ];
-  return (
-    <section id="industries" className="section motif--drafting">
-      <div className={`container section__inner ${s.industriesInner}`} style={{ flexDirection: "row" }}>
-        <div className={s.industriesIntro}>
-          <p className="eyebrow">Industries</p>
-          <h2 className="display">Built for the teams that build Texas.</h2>
-          <p>Each industry gets its own capture guide, element library and export presets.</p>
-        </div>
-        <ul className={s.industryList}>
-          {rows.map(([a, b]) => (
-            <li key={a}>
-              <Link href="/#contact">
-                <span className="display">{a}</span>
-                <span>{b}</span>
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-                  <path d="M4 11h14m0 0-5-5m5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-export function Proof() {
-  return (
-    <section id="proof" className="section motif--drafting motif--drafting-surface">
-      <div className="container section__inner">
-        <div className="section__title">
-          <p className="eyebrow">Customer story</p>
-          <h2 className="display">Results on real sites.</h2>
-        </div>
-        <div className="grid">
-          <figure className={`card card--ground ${s.quote}`}>
-            <blockquote className="display" style={{ fontFamily: "var(--font-body)" }}>
-              “[CUSTOMER QUOTE — two sentences on what changed on site after switching to QBTTEXAS twins.]”
-            </blockquote>
-            <figcaption>
-              <span className={s.avatar} />
-              <span style={{ display: "flex", flexDirection: "column" }}>
-                <strong>[NAME]</strong>
-                <span className="muted" style={{ fontSize: 14 }}>
-                  [TITLE], [COMPANY]
-                </span>
-              </span>
-              <Link href="/#contact" className="link" style={{ marginLeft: "auto" }}>
-                Read the case study →
-              </Link>
-            </figcaption>
-          </figure>
-          <div className={s.metrics}>
-            {[
-              ["[XX]%", "less time from site visit to usable model"],
-              ["10", "bridges modeled in Korea and Indiana"],
-              ["±[X] mm", "typical measurement accuracy"],
-            ].map(([n, l]) => (
-              <div key={l} className={`card card--ground ${s.metric}`}>
-                <strong className="display">{n}</strong>
-                <span>{l}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function CTA() {
   return (
     <section id="contact" className="section motif--drafting">
@@ -349,7 +272,6 @@ export function CTA() {
 export function Footer() {
   const cols: [string, [string, string][]][] = [
     ["Solutions", [["3D reconstruction", "/#software"], ["Digital twins", "/#software"], ["BIM export", "/#software"], ["3D viewer", "/models"]]],
-    ["Industries", [["Construction", "/#industries"], ["Real estate", "/#industries"], ["Energy", "/#industries"], ["Infrastructure", "/#industries"]]],
     ["Company", [["About", "/#about"], ["Work", "/#work"], ["Software", "/#software"], ["Contact", "/#contact"]]],
   ];
   return (
