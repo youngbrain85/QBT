@@ -24,12 +24,12 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "QBTTEXAS LLC — Physical AI. Digital 3D World.",
+  title: "QBTTEXAS LLC — Build A New Digital World.",
   description:
     "AI-based 3D modeling and digital twins for bridges, buildings and plants. Scan-to-BIM, segment review, measured IFC deliverables and an inspection platform, from QBTTEXAS LLC.",
   metadataBase: new URL("https://qbttexas.com"),
   openGraph: {
-    title: "QBTTEXAS LLC — Physical AI. Digital 3D World.",
+    title: "QBTTEXAS LLC — Build A New Digital World.",
     description:
       "AI that turns field capture into measurable digital twins of bridges, buildings and plants.",
     images: ["/renders/cable-stayed-bridge.png"],
